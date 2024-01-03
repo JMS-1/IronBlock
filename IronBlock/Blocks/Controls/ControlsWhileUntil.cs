@@ -14,7 +14,8 @@ namespace IronBlock.Blocks.Controls
       var mode = Fields.Get("MODE");
       var value = Values.FirstOrDefault(x => x.Name == "BOOL");
 
-      if (!Statements.Any(x => x.Name == "DO") || null == value) return base.Evaluate(context);
+      if (!Statements.Any(x => x.Name == "DO") || null == value)
+        return base.Evaluate(context);
 
       var statement = Statements.Get("DO");
 
@@ -46,11 +47,13 @@ namespace IronBlock.Blocks.Controls
       var mode = Fields.Get("MODE");
       var value = Values.FirstOrDefault(x => x.Name == "BOOL");
 
-      if (!Statements.Any(x => x.Name == "DO") || null == value) return base.Generate(context);
+      if (!Statements.Any(x => x.Name == "DO") || null == value)
+        return base.Generate(context);
 
       var statement = Statements.Get("DO");
 
-      if (value.Generate(context) is not ExpressionSyntax conditionExpression) throw new ApplicationException($"Unknown expression for condition.");
+      if (value.Generate(context) is not ExpressionSyntax conditionExpression)
+        throw new ApplicationException($"Unknown expression for condition.");
 
       var whileContext = new Context() { Parent = context };
       if (statement?.Block != null)

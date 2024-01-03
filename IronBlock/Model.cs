@@ -145,7 +145,8 @@ namespace IronBlock
       {
         var node = Next.Generate(context);
         var commentText = string.Join("\n", Next.Comments.Select(x => x.Value));
-        if (string.IsNullOrWhiteSpace(commentText)) return node;
+        if (string.IsNullOrWhiteSpace(commentText))
+          return node;
         return node.WithLeadingTrivia(SyntaxFactory.Comment($"/* {commentText} */"));
       }
       return null;
@@ -181,12 +182,14 @@ namespace IronBlock
     public IBlock Block { get; set; }
     public object Evaluate(Context context)
     {
-      if (null == Block) return null;
+      if (null == Block)
+        return null;
       return Block.Evaluate(context);
     }
     public SyntaxNode Generate(Context context)
     {
-      if (null == Block) return null;
+      if (null == Block)
+        return null;
       return Block.Generate(context);
     }
   }
@@ -197,12 +200,14 @@ namespace IronBlock
     public IBlock Block { get; set; }
     public object Evaluate(Context context)
     {
-      if (null == Block) return null;
+      if (null == Block)
+        return null;
       return Block.Evaluate(context);
     }
     public SyntaxNode Generate(Context context)
     {
-      if (null == Block) return null;
+      if (null == Block)
+        return null;
       return Block.Generate(context);
     }
   }

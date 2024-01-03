@@ -70,7 +70,8 @@ namespace IronBlock.Blocks.Lists
 
     public override SyntaxNode Generate(Context context)
     {
-      if (Values.Generate("VALUE", context) is not ExpressionSyntax valueExpression) throw new ApplicationException($"Unknown expression for value.");
+      if (Values.Generate("VALUE", context) is not ExpressionSyntax valueExpression)
+        throw new ApplicationException($"Unknown expression for value.");
 
       ExpressionSyntax atExpression = null;
       if (Values.Any(x => x.Name == "AT"))
@@ -92,7 +93,8 @@ namespace IronBlock.Blocks.Lists
       switch (where)
       {
         case "FROM_START":
-          if (atExpression == null) throw new ApplicationException($"Unknown expression for at.");
+          if (atExpression == null)
+            throw new ApplicationException($"Unknown expression for at.");
 
           return
               ElementAccessExpression(
@@ -115,7 +117,8 @@ namespace IronBlock.Blocks.Lists
                   )
               );
         case "FROM_END":
-          if (atExpression == null) throw new ApplicationException($"Unknown expression for at.");
+          if (atExpression == null)
+            throw new ApplicationException($"Unknown expression for at.");
 
           return
               SyntaxGenerator.MethodInvokeExpression(

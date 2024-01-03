@@ -11,13 +11,15 @@ namespace IronBlock.Blocks.Lists
   {
     public override object Evaluate(Context context)
     {
-      if (Values.Evaluate("VALUE", context) is not IEnumerable<object> value) return 0.0;
+      if (Values.Evaluate("VALUE", context) is not IEnumerable<object> value)
+        return 0.0;
 
       return (double)value.Count();
     }
     public override SyntaxNode Generate(Context context)
     {
-      if (Values.Generate("VALUE", context) is not ExpressionSyntax valueExpression) throw new ApplicationException($"Unknown expression for value.");
+      if (Values.Generate("VALUE", context) is not ExpressionSyntax valueExpression)
+        throw new ApplicationException($"Unknown expression for value.");
 
       return SyntaxGenerator.PropertyAccessExpression(valueExpression, nameof(Array.Length));
     }

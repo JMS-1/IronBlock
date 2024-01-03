@@ -15,7 +15,8 @@ namespace IronBlock.Blocks.Controls
 
       var statement = Statements.Where(x => x.Name == "DO").FirstOrDefault();
 
-      if (null == statement) return base.Evaluate(context);
+      if (null == statement)
+        return base.Evaluate(context);
 
       foreach (var item in list)
       {
@@ -36,11 +37,13 @@ namespace IronBlock.Blocks.Controls
     public override SyntaxNode Generate(Context context)
     {
       var variableName = Fields.Get("VAR").CreateValidName();
-      if (Values.Generate("LIST", context) is not ExpressionSyntax listExpression) throw new ApplicationException($"Unknown expression for list.");
+      if (Values.Generate("LIST", context) is not ExpressionSyntax listExpression)
+        throw new ApplicationException($"Unknown expression for list.");
 
       var statement = Statements.Where(x => x.Name == "DO").FirstOrDefault();
 
-      if (null == statement) return base.Generate(context);
+      if (null == statement)
+        return base.Generate(context);
 
       var forEachContext = new Context() { Parent = context };
       if (statement?.Block != null)

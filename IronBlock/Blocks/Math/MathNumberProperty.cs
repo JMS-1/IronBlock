@@ -29,7 +29,8 @@ namespace IronBlock.Blocks.Math
     public override SyntaxNode Generate(Context context)
     {
       var op = Fields.Get("PROPERTY");
-      if (Values.Generate("NUMBER_TO_CHECK", context) is not ExpressionSyntax numberExpression) throw new ApplicationException($"Unknown expression for number.");
+      if (Values.Generate("NUMBER_TO_CHECK", context) is not ExpressionSyntax numberExpression)
+        throw new ApplicationException($"Unknown expression for number.");
 
       switch (op)
       {
@@ -54,7 +55,8 @@ namespace IronBlock.Blocks.Math
             LiteralValue(0)
           );
         case "DIVISIBLE_BY":
-          if (Values.Generate("DIVISOR", context) is not ExpressionSyntax divisorExpression) throw new ApplicationException($"Unknown expression for divisor.");
+          if (Values.Generate("DIVISOR", context) is not ExpressionSyntax divisorExpression)
+            throw new ApplicationException($"Unknown expression for divisor.");
 
           return CompareModulo(numberExpression, divisorExpression, 0);
         default: throw new ApplicationException($"Unknown PROPERTY {op}");
@@ -85,15 +87,19 @@ namespace IronBlock.Blocks.Math
 
     private static bool IsPrime(int number)
     {
-      if (number == 1) return false;
-      if (number == 2) return true;
-      if (number % 2 == 0) return false;
+      if (number == 1)
+        return false;
+      if (number == 2)
+        return true;
+      if (number % 2 == 0)
+        return false;
 
       var boundary = (int)System.Math.Floor(System.Math.Sqrt(number));
 
       for (var i = 3; i <= boundary; i += 2)
       {
-        if (number % i == 0) return false;
+        if (number % i == 0)
+          return false;
       }
 
       return true;

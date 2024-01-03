@@ -19,11 +19,14 @@ namespace IronBlock.Blocks.Math
 
     public override SyntaxNode Generate(Context context)
     {
-      if (Values.Generate("VALUE", context) is not ExpressionSyntax valueExpression) throw new ApplicationException($"Unknown expression for value.");
+      if (Values.Generate("VALUE", context) is not ExpressionSyntax valueExpression)
+        throw new ApplicationException($"Unknown expression for value.");
 
-      if (Values.Generate("LOW", context) is not ExpressionSyntax lowExpression) throw new ApplicationException($"Unknown expression for low.");
+      if (Values.Generate("LOW", context) is not ExpressionSyntax lowExpression)
+        throw new ApplicationException($"Unknown expression for low.");
 
-      if (Values.Generate("HIGH", context) is not ExpressionSyntax highExpression) throw new ApplicationException($"Unknown expression for high.");
+      if (Values.Generate("HIGH", context) is not ExpressionSyntax highExpression)
+        throw new ApplicationException($"Unknown expression for high.");
 
       return
         SyntaxGenerator.MethodInvokeExpression(

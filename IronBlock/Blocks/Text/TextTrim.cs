@@ -24,7 +24,8 @@ namespace IronBlock.Blocks.Text
 
     public override SyntaxNode Generate(Context context)
     {
-      if (Values.Generate("TEXT", context) is not ExpressionSyntax textExpression) throw new ApplicationException($"Unknown expression for text.");
+      if (Values.Generate("TEXT", context) is not ExpressionSyntax textExpression)
+        throw new ApplicationException($"Unknown expression for text.");
 
       var mode = Fields.Get("MODE");
 

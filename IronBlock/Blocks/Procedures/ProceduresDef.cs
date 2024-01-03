@@ -15,7 +15,8 @@ namespace IronBlock.Blocks.Text
       var name = Fields.Get("NAME");
       var statement = Statements.FirstOrDefault(x => x.Name == "STACK");
 
-      if (string.IsNullOrWhiteSpace(name)) return null;
+      if (string.IsNullOrWhiteSpace(name))
+        return null;
 
       // if the statement is missing, create a stub one
       if (null == statement)
@@ -58,7 +59,8 @@ namespace IronBlock.Blocks.Text
       var name = Fields.Get("NAME").CreateValidName();
       var statement = Statements.FirstOrDefault(x => x.Name == "STACK");
 
-      if (string.IsNullOrWhiteSpace(name)) return null;
+      if (string.IsNullOrWhiteSpace(name))
+        return null;
 
       // if the statement is missing, create a stub one
       if (null == statement)
@@ -76,7 +78,8 @@ namespace IronBlock.Blocks.Text
       if (Values.Any(x => x.Name == "RETURN"))
       {
         var returnValue = Values.First(x => x.Name == "RETURN");
-        if (returnValue.Generate(context) is not ExpressionSyntax returnExpression) throw new ApplicationException($"Unknown expression for return statement.");
+        if (returnValue.Generate(context) is not ExpressionSyntax returnExpression)
+          throw new ApplicationException($"Unknown expression for return statement.");
 
         returnStatement = ReturnStatement(returnExpression);
       }
@@ -145,7 +148,8 @@ namespace IronBlock.Blocks.Text
 
     private static IBlock FindEndOfChain(IBlock block)
     {
-      if (null == block.Next) return block;
+      if (null == block.Next)
+        return block;
       return FindEndOfChain(block.Next);
     }
 

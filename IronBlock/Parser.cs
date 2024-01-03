@@ -43,7 +43,8 @@ namespace IronBlock
         if (node.LocalName == "block" || node.LocalName == "shadow")
         {
           var block = ParseBlock(node);
-          if (null != block) workspace.Blocks.Add(block);
+          if (null != block)
+            workspace.Blocks.Add(block);
         }
         else
         {
@@ -90,10 +91,12 @@ namespace IronBlock
 
     private IBlock ParseBlock(XmlNode node)
     {
-      if (bool.Parse(node.GetAttribute("disabled") ?? "false")) return null;
+      if (bool.Parse(node.GetAttribute("disabled") ?? "false"))
+        return null;
 
       var type = node.GetAttribute("type");
-      if (!blocks.ContainsKey(type)) throw new ApplicationException($"block type not registered: '{type}'");
+      if (!blocks.ContainsKey(type))
+        throw new ApplicationException($"block type not registered: '{type}'");
       var block = blocks[type]();
 
       block.Type = type;
@@ -120,7 +123,8 @@ namespace IronBlock
             break;
           case "next":
             var nextBlock = ParseBlock(childNode.FirstChild);
-            if (null != nextBlock) block.Next = nextBlock;
+            if (null != nextBlock)
+              block.Next = nextBlock;
             break;
           default:
             throw new ArgumentException($"unknown xml type: {childNode.LocalName}");
@@ -142,7 +146,8 @@ namespace IronBlock
     private void ParseValue(XmlNode valueNode, IBlock block)
     {
       var childNode = valueNode.GetChild("block") ?? valueNode.GetChild("shadow");
-      if (childNode == null) return;
+      if (childNode == null)
+        return;
       var childBlock = ParseBlock(childNode);
 
       var value = new Value
@@ -161,7 +166,8 @@ namespace IronBlock
     private void ParseStatement(XmlNode statementNode, IBlock block)
     {
       var childNode = statementNode.GetChild("block") ?? statementNode.GetChild("shadow");
-      if (childNode == null) return;
+      if (childNode == null)
+        return;
       var childBlock = ParseBlock(childNode);
 
       var statement = new Statement
@@ -196,7 +202,8 @@ namespace IronBlock
     {
       foreach (XmlNode childNode in node.ChildNodes)
       {
-        if (childNode.LocalName == name) return childNode;
+        if (childNode.LocalName == name)
+          return childNode;
       }
       return null;
     }
@@ -205,10 +212,10 @@ namespace IronBlock
     {
       foreach (XmlAttribute attribute in node.Attributes)
       {
-        if (attribute.Name == name) return attribute.Value;
+        if (attribute.Name == name)
+          return attribute.Value;
       }
       return null;
-
     }
   }
 

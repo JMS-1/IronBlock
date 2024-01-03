@@ -11,9 +11,11 @@ namespace IronBlock.Blocks.Lists
     {
         public override SyntaxNode Generate(Context context)
         {
-            if (Values.Generate("LIST", context) is not ExpressionSyntax listExpression) throw new ApplicationException($"Unknown expression for list.");
+            if (Values.Generate("LIST", context) is not ExpressionSyntax listExpression)
+                throw new ApplicationException($"Unknown expression for list.");
 
-            if (Values.Generate("TO", context) is not ExpressionSyntax toExpression) throw new ApplicationException($"Unknown expression for to.");
+            if (Values.Generate("TO", context) is not ExpressionSyntax toExpression)
+                throw new ApplicationException($"Unknown expression for to.");
 
             ExpressionSyntax atExpression = null;
             if (Values.Any(x => x.Name == "AT"))
@@ -34,7 +36,8 @@ namespace IronBlock.Blocks.Lists
             switch (where)
             {
                 case "FROM_START":
-                    if (atExpression == null) throw new ApplicationException($"Unknown expression for at.");
+                    if (atExpression == null)
+                        throw new ApplicationException($"Unknown expression for at.");
 
                     return
                         AssignmentExpression(

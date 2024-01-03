@@ -15,7 +15,8 @@ namespace IronBlock.Blocks.Text
 
       var name = Mutations.GetValue("name");
 
-      if (!context.Functions.ContainsKey(name)) throw new MissingMethodException($"Method ${name} not defined");
+      if (!context.Functions.ContainsKey(name))
+        throw new MissingMethodException($"Method ${name} not defined");
 
       var statement = (IFragment)context.Functions[name];
 

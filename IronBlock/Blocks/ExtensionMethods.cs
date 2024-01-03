@@ -18,7 +18,8 @@ namespace IronBlock.Blocks
     public static object Evaluate(this IEnumerable<Value> values, string name, Context context)
     {
       var value = values.FirstOrDefault(x => x.Name == name);
-      if (null == value) throw new ArgumentException($"value {name} not found");
+      if (null == value)
+        throw new ArgumentException($"value {name} not found");
 
       return value.Evaluate(context);
     }
@@ -26,7 +27,8 @@ namespace IronBlock.Blocks
     public static SyntaxNode Generate(this IEnumerable<Value> values, string name, Context context)
     {
       var value = values.FirstOrDefault(x => x.Name == name);
-      if (null == value) throw new ArgumentException($"value {name} not found");
+      if (null == value)
+        throw new ArgumentException($"value {name} not found");
 
       return value.Generate(context);
     }
@@ -34,7 +36,8 @@ namespace IronBlock.Blocks
     public static string Get(this IEnumerable<Field> fields, string name)
     {
       var field = fields.FirstOrDefault(x => x.Name == name);
-      if (null == field) throw new ArgumentException($"field {name} not found");
+      if (null == field)
+        throw new ArgumentException($"field {name} not found");
 
       return field.Value;
     }
@@ -42,7 +45,8 @@ namespace IronBlock.Blocks
     public static Statement Get(this IEnumerable<Statement> statements, string name)
     {
       var statement = statements.FirstOrDefault(x => x.Name == name);
-      if (null == statement) throw new ArgumentException($"statement {name} not found");
+      if (null == statement)
+        throw new ArgumentException($"statement {name} not found");
 
       return statement;
     }
@@ -50,7 +54,8 @@ namespace IronBlock.Blocks
     public static string GetValue(this IList<Mutation> mutations, string name, string domain = "mutation")
     {
       var mut = mutations.FirstOrDefault(x => x.Domain == domain && x.Name == name);
-      if (null == mut) return null;
+      if (null == mut)
+        return null;
       return mut.Value;
     }
 

@@ -24,9 +24,11 @@ namespace IronBlock.Blocks.Text
 
     public override SyntaxNode Generate(Context context)
     {
-      if (Values.Generate("VALUE", context) is not ExpressionSyntax textExpression) throw new ApplicationException($"Unknown expression for value.");
+      if (Values.Generate("VALUE", context) is not ExpressionSyntax textExpression)
+        throw new ApplicationException($"Unknown expression for value.");
 
-      if (Values.Generate("FIND", context) is not ExpressionSyntax findExpression) throw new ApplicationException($"Unknown expression for find.");
+      if (Values.Generate("FIND", context) is not ExpressionSyntax findExpression)
+        throw new ApplicationException($"Unknown expression for find.");
 
       var mode = Fields.Get("END");
       switch (mode)

@@ -36,7 +36,8 @@ namespace IronBlock.Blocks.Math
 
     public override SyntaxNode Generate(Context context)
     {
-      if (Values.Generate("LIST", context) is not ExpressionSyntax listExpression) throw new ApplicationException($"Unknown expression for list.");
+      if (Values.Generate("LIST", context) is not ExpressionSyntax listExpression)
+        throw new ApplicationException($"Unknown expression for list.");
 
       var op = Fields.Get("OP");
 
@@ -62,7 +63,8 @@ namespace IronBlock.Blocks.Math
 
     private static object Median(IEnumerable<double> values)
     {
-      if (!values.Any()) return null;
+      if (!values.Any())
+        return null;
       var sortedValues = values.OrderBy(x => x).ToArray();
       var mid = (sortedValues.Length - 1) / 2.0;
       return (sortedValues[(int)(mid)] + sortedValues[(int)(mid + 0.5)]) / 2;

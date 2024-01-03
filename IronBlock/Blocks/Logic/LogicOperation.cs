@@ -26,9 +26,11 @@ namespace IronBlock.Blocks.Logic
 
     public override SyntaxNode Generate(Context context)
     {
-      if (Values.Generate("A", context) is not ExpressionSyntax firstExpression) throw new ApplicationException($"Unknown expression for value A.");
+      if (Values.Generate("A", context) is not ExpressionSyntax firstExpression)
+        throw new ApplicationException($"Unknown expression for value A.");
 
-      if (Values.Generate("B", context) is not ExpressionSyntax secondExpression) throw new ApplicationException($"Unknown expression for value B.");
+      if (Values.Generate("B", context) is not ExpressionSyntax secondExpression)
+        throw new ApplicationException($"Unknown expression for value B.");
 
       var opValue = Fields.Get("OP");
 

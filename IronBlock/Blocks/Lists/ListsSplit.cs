@@ -41,9 +41,11 @@ namespace IronBlock.Blocks.Lists
     public override SyntaxNode Generate(Context context)
     {
       var mode = Fields.Get("MODE");
-      if (Values.Generate("INPUT", context) is not ExpressionSyntax inputExpression) throw new ApplicationException($"Unknown expression for input.");
+      if (Values.Generate("INPUT", context) is not ExpressionSyntax inputExpression)
+        throw new ApplicationException($"Unknown expression for input.");
 
-      if (Values.Generate("DELIM", context) is not ExpressionSyntax delimExpression) throw new ApplicationException($"Unknown expression for delim.");
+      if (Values.Generate("DELIM", context) is not ExpressionSyntax delimExpression)
+        throw new ApplicationException($"Unknown expression for delim.");
 
       switch (mode)
       {
