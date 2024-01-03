@@ -19,7 +19,7 @@ namespace IronBlock.Blocks.Text
 
     public override SyntaxNode Generate(Context context)
     {
-      SyntaxNode syntaxNode = Values.Generate("TEXT", context);
+      var syntaxNode = Values.Generate("TEXT", context);
       if (syntaxNode is not ExpressionSyntax expression) throw new ApplicationException($"Unknown expression for text.");
 
       var invocationExpression =

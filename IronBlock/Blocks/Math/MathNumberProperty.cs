@@ -91,7 +91,7 @@ namespace IronBlock.Blocks.Math
 
       var boundary = (int)System.Math.Floor(System.Math.Sqrt(number));
 
-      for (int i = 3; i <= boundary; i += 2)
+      for (var i = 3; i <= boundary; i += 2)
       {
         if (number % i == 0) return false;
       }

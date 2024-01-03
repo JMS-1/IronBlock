@@ -13,7 +13,7 @@ namespace IronBlock.Blocks.Logic
 
     public override SyntaxNode Generate(Context context)
     {
-      bool value = bool.Parse(Fields.Get("BOOL"));
+      var value = bool.Parse(Fields.Get("BOOL"));
       if (value)
         return LiteralExpression(SyntaxKind.TrueLiteralExpression);
 

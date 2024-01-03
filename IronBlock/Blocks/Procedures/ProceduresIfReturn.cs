@@ -23,7 +23,7 @@ namespace IronBlock.Blocks.Text
     {
       if (Values.Generate("CONDITION", context) is not ExpressionSyntax condition) throw new ApplicationException($"Unknown expression for condition.");
 
-      ReturnStatementSyntax returnStatement = ReturnStatement();
+      var returnStatement = ReturnStatement();
 
       if (Values.Any(x => x.Name == "VALUE"))
       {

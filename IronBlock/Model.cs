@@ -33,7 +33,7 @@ namespace IronBlock
 
       // first process procedure def blocks
       var processedProcedureDefBlocks = new List<IBlock>();
-      foreach (IBlock block in Blocks)
+      foreach (var block in Blocks)
       {
         if (block is ProceduresDef)
         {

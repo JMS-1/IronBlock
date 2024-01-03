@@ -64,7 +64,7 @@ namespace IronBlock.Blocks.Math
     {
       if (!values.Any()) return null;
       var sortedValues = values.OrderBy(x => x).ToArray();
-      double mid = (sortedValues.Length - 1) / 2.0;
+      var mid = (sortedValues.Length - 1) / 2.0;
       return (sortedValues[(int)(mid)] + sortedValues[(int)(mid + 0.5)]) / 2;
     }
   }

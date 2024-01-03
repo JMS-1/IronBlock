@@ -10,24 +10,24 @@ namespace IronBlock.Blocks.Logic
   {
     public override object Evaluate(Context context)
     {
-      string opValue = Fields.Get("OP");
+      var opValue = Fields.Get("OP");
 
-      object a = Values.Evaluate("A", context);
-      object b = Values.Evaluate("B", context);
+      var a = Values.Evaluate("A", context);
+      var b = Values.Evaluate("B", context);
 
-      (bool canConvert, double aValue, double bValue) tryInt = TryConvertToDoubleValues(a, b); // int => blockly always uses double
+      var tryInt = TryConvertToDoubleValues(a, b); // int => blockly always uses double
       if (tryInt.canConvert)
         return Compare(opValue, tryInt.aValue, tryInt.bValue);
 
-      (bool canConvert, double aValue, double bValue) tryDouble = TryConvertValues<double>(a, b);
+      var tryDouble = TryConvertValues<double>(a, b);
       if (tryDouble.canConvert)
         return Compare(opValue, tryDouble.aValue, tryDouble.bValue);
 
-      (bool canConvert, string aValue, string bValue) tryString = TryConvertValues<string>(a, b);
+      var tryString = TryConvertValues<string>(a, b);
       if (tryString.canConvert)
         return Compare(opValue, tryString.aValue, tryString.bValue);
 
-      (bool canConvert, bool aValue, bool bValue) tryBool = TryConvertValues<bool>(a, b);
+      var tryBool = TryConvertValues<bool>(a, b);
       if (tryBool.canConvert)
         return Compare(opValue, tryBool.aValue, tryBool.bValue);
 

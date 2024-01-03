@@ -50,7 +50,7 @@ namespace IronBlock.Blocks.Controls
     public override SyntaxNode Generate(Context context)
     {
       var ifCount = 1;
-      string elseifMutation = Mutations.GetValue("elseif");
+      var elseifMutation = Mutations.GetValue("elseif");
       if (!string.IsNullOrEmpty(elseifMutation))
       {
         var elseIf = elseifMutation;
@@ -79,7 +79,7 @@ namespace IronBlock.Blocks.Controls
         ifStatements.Add(newIfStatement);
       }
 
-      string elseMutation = Mutations.GetValue("else");
+      var elseMutation = Mutations.GetValue("else");
       if (elseMutation == "1")
       {
         var statement = Statements.Get("ELSE");
@@ -94,7 +94,7 @@ namespace IronBlock.Blocks.Controls
           }
         }
 
-        int lastIndex = ifStatements.Count - 1;
+        var lastIndex = ifStatements.Count - 1;
         if (lastIndex >= 0)
         {
           var lastIfStatement = ifStatements[lastIndex];
@@ -102,7 +102,7 @@ namespace IronBlock.Blocks.Controls
         }
       }
 
-      for (int index = ifStatements.Count - 1; index >= 0; index--)
+      for (var index = ifStatements.Count - 1; index >= 0; index--)
       {
         var currentIfStatement = ifStatements[index];
         if (index > 0)

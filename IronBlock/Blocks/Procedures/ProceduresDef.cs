@@ -87,9 +87,9 @@ namespace IronBlock.Blocks.Text
 
       foreach (var mutation in Mutations.Where(x => x.Domain == "arg" && x.Name == "name"))
       {
-        string parameterName = mutation.Value.CreateValidName();
+        var parameterName = mutation.Value.CreateValidName();
 
-        ParameterSyntax parameter = Parameter(
+        var parameter = Parameter(
           Identifier(parameterName)
         )
         .WithType(
