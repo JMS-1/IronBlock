@@ -7,7 +7,7 @@ namespace IronBlock.Tests
   public class ExampleTests
   {
     [TestMethod]
-    public void Test_Example1()
+    public void Test_Example1_Xml()
     {
       var xml = File.ReadAllText("../../../Examples/example1.xml");
       var parser = new Parser();
@@ -22,7 +22,7 @@ namespace IronBlock.Tests
 
 
     [TestMethod]
-    public void Test_Example2()
+    public void Test_Example2_Xml()
     {
       var xml = File.ReadAllText("../../../Examples/example2.xml");
       var parser = new Parser();

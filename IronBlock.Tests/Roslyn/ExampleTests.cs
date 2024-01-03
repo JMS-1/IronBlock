@@ -8,7 +8,7 @@ namespace IronBlock.Tests.Roslyn
   public class ExampleTests
   {
     [TestMethod]
-    public void Test_Example1()
+    public void Test_Example1_Xml()
     {
       var xml = File.ReadAllText("../../../Examples/example1.xml");
 
@@ -23,7 +23,7 @@ namespace IronBlock.Tests.Roslyn
 
 
     [TestMethod]
-    public void Test_Example2()
+    public void Test_Example2_Xml()
     {
       var xml = File.ReadAllText("../../../Examples/example2.xml");
 
@@ -37,7 +37,7 @@ namespace IronBlock.Tests.Roslyn
     }
 
     [TestMethod]
-    public void Test_Example3()
+    public void Test_Example3_Xml()
     {
       var xml = File.ReadAllText("../../../Examples/example3.xml");
 
@@ -51,7 +51,7 @@ namespace IronBlock.Tests.Roslyn
     }
 
     [TestMethod]
-    public void Test_Example4()
+    public void Test_Example4_Xml()
     {
       var xml = File.ReadAllText("../../../Examples/example4.xml");
 
