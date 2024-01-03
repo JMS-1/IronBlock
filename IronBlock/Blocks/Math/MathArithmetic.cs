@@ -57,7 +57,7 @@ namespace IronBlock.Blocks.Math
       return ParenthesizedExpression(expression);
     }
 
-    private SyntaxKind GetBinaryOperator(string opValue)
+    private static SyntaxKind GetBinaryOperator(string opValue)
     {
       switch (opValue)
       {

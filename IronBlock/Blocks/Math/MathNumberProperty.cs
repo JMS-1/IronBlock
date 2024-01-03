@@ -63,7 +63,7 @@ namespace IronBlock.Blocks.Math
       }
     }
 
-    private LiteralExpressionSyntax LiteralValue(double value)
+    private static LiteralExpressionSyntax LiteralValue(double value)
     {
       return LiteralExpression(
         SyntaxKind.NumericLiteralExpression,

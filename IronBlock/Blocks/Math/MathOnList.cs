@@ -61,7 +61,7 @@ namespace IronBlock.Blocks.Math
       }
     }
 
-    object Median(IEnumerable<double> values)
+    static object Median(IEnumerable<double> values)
     {
       if (!values.Any()) return null;
       var sortedValues = values.OrderBy(x => x).ToArray();

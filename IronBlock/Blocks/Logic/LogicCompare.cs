@@ -52,7 +52,7 @@ namespace IronBlock.Blocks.Logic
       return ParenthesizedExpression(expression);
     }
 
-    private bool Compare(string op, string a, string b)
+    private static bool Compare(string op, string a, string b)
     {
       switch (op)
       {
@@ -73,7 +73,7 @@ namespace IronBlock.Blocks.Logic
       }
     }
 
-    private bool Compare(string op, double a, double b)
+    private static bool Compare(string op, double a, double b)
     {
       switch (op)
       {
@@ -94,7 +94,7 @@ namespace IronBlock.Blocks.Logic
       }
     }
 
-    private bool Compare(string op, bool a, bool b)
+    private static bool Compare(string op, bool a, bool b)
     {
       switch (op)
       {
@@ -115,7 +115,7 @@ namespace IronBlock.Blocks.Logic
       }
     }
 
-    private SyntaxKind GetBinaryOperator(string op)
+    private static SyntaxKind GetBinaryOperator(string op)
     {
       switch (op)
       {
@@ -136,7 +136,7 @@ namespace IronBlock.Blocks.Logic
       }
     }
 
-    private (bool canConvert, T aValue, T bValue) TryConvertValues<T>(object a, object b)
+    private static (bool canConvert, T aValue, T bValue) TryConvertValues<T>(object a, object b)
     {
       T aResult;
       if (a?.GetType() == typeof(T))
@@ -153,7 +153,7 @@ namespace IronBlock.Blocks.Logic
       return (true, aResult, bResult);
     }
 
-    private (bool canConvert, double aValue, double bValue) TryConvertToDoubleValues(object a, object b)
+    private static (bool canConvert, double aValue, double bValue) TryConvertToDoubleValues(object a, object b)
     {
       double aResult;
       if (a?.GetType() == typeof(double) || a?.GetType() == typeof(int))

@@ -95,7 +95,7 @@ namespace IronBlock
       return blockSyntax;
     }
 
-    private LocalDeclarationStatementSyntax GenerateVariableDeclaration(string variableName)
+    private static LocalDeclarationStatementSyntax GenerateVariableDeclaration(string variableName)
     {
       return LocalDeclarationStatement(
             VariableDeclaration(
@@ -153,7 +153,7 @@ namespace IronBlock
       return null;
     }
 
-    protected SyntaxNode Statement(SyntaxNode syntaxNode, SyntaxNode nextSyntaxNode, Context context)
+    protected static SyntaxNode Statement(SyntaxNode syntaxNode, SyntaxNode nextSyntaxNode, Context context)
     {
       if (nextSyntaxNode == null)
         return syntaxNode;

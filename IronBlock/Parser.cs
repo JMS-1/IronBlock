@@ -129,7 +129,7 @@ namespace IronBlock
       return block;
     }
 
-    void ParseField(XmlNode fieldNode, IBlock block)
+    static void ParseField(XmlNode fieldNode, IBlock block)
     {
       var field = new Field
       {
@@ -153,7 +153,7 @@ namespace IronBlock
       block.Values.Add(value);
     }
 
-    void ParseComment(XmlNode commentNode, IBlock block)
+    static void ParseComment(XmlNode commentNode, IBlock block)
     {
       block.Comments.Add(new Comment(commentNode.InnerText));
     }
@@ -172,7 +172,7 @@ namespace IronBlock
       block.Statements.Add(statement);
     }
 
-    void ParseMutation(XmlNode mutationNode, IBlock block)
+    static void ParseMutation(XmlNode mutationNode, IBlock block)
     {
       foreach (XmlAttribute attribute in mutationNode.Attributes)
       {
