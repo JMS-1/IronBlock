@@ -32,8 +32,6 @@ namespace IronBlock.Blocks.Variables
 
     public override SyntaxNode Generate(Context context)
     {
-      var variables = context.Variables;
-
       var variableName = Fields.Get("VAR").CreateValidName();
 
       if (Values.Generate("VALUE", context) is not ExpressionSyntax valueExpression)

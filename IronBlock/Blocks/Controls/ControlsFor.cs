@@ -17,7 +17,7 @@ namespace IronBlock.Blocks.Controls
       var toValue = (double)Values.Evaluate("TO", context);
       var byValue = (double)Values.Evaluate("BY", context);
 
-      var statement = Statements.FirstOrDefault();
+      var statement = Statements.Where(x => x.Name == "DO").FirstOrDefault();
 
 
       if (context.Variables.ContainsKey(variableName))
@@ -52,7 +52,7 @@ namespace IronBlock.Blocks.Controls
       if (Values.Generate("BY", context) is not ExpressionSyntax byValueExpression)
         throw new ApplicationException($"Unknown expression for by value.");
 
-      var statement = Statements.FirstOrDefault();
+      var statement = Statements.Where(x => x.Name == "DO").FirstOrDefault();
 
       var rootContext = context.GetRootContext();
       if (!rootContext.Variables.ContainsKey(variableName))

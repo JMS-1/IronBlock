@@ -113,7 +113,6 @@ namespace IronBlock.Blocks.Controls
         }
       }
 
-
       var ifStatement = ifStatements.FirstOrDefault();
 
       return Statement(ifStatement, base.Generate(context), context);

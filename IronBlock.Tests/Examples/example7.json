@@ -1,0 +1,63 @@
+{
+  "blocks": {
+    "languageVersion": 0,
+    "blocks": [
+      {
+        "type": "text_print",
+        "id": ".^Fy|z+*ML#gI{Q*:X!o",
+        "x": 38,
+        "y": 138,
+        "inputs": {
+          "TEXT": {
+            "shadow": {
+              "type": "text",
+              "id": ";K}4@^Jh+!m.tqENhDSO",
+              "fields": {
+                "TEXT": "abc"
+              }
+            },
+            "block": {
+              "type": "text_join",
+              "id": "HIN2Y|s%A@/I+mU4J_)c",
+              "extraState": {
+                "itemCount": 2
+              },
+              "inputs": {
+                "ADD0": {
+                  "block": {
+                    "type": "text",
+                    "id": "YQkN@VY^:Ffw[|Lqoy6c",
+                    "fields": {
+                      "TEXT": "Hello "
+                    }
+                  }
+                },
+                "ADD1": {
+                  "block": {
+                    "type": "text_prompt_ext",
+                    "id": "RwU*7+yA?C=qAN+Y2ib-",
+                    "extraState": "<mutation type=\"TEXT\"></mutation>",
+                    "fields": {
+                      "TYPE": "TEXT"
+                    },
+                    "inputs": {
+                      "TEXT": {
+                        "shadow": {
+                          "type": "text",
+                          "id": "@`q#IVRol}s,7Q:NcLFI",
+                          "fields": {
+                            "TEXT": "Please enter your name"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

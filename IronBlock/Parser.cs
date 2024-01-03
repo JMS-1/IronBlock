@@ -7,6 +7,8 @@ namespace IronBlock
   {
     public static XmlParser CreateXml() => new();
 
+    public static JsonParser CreateJson() => new();
+
     protected readonly IDictionary<string, Func<IBlock>> blocks = new Dictionary<string, Func<IBlock>>();
   }
 
