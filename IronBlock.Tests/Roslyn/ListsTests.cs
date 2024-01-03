@@ -38,8 +38,8 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
-      Assert.IsTrue(code.Contains("new List<dynamic>{\"x\", \"y\", \"z\"};"));
+      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      Assert.IsTrue(code.Contains("new List<dynamic> { \"x\", \"y\", \"z\" };"));
     }
 
 
@@ -118,7 +118,7 @@ namespace IronBlock.Tests.Roslyn
           .Generate();
 
       string code = output.NormalizeWhitespace().ToFullString();
-      Assert.IsTrue(code.Contains("string.Join(\",\", new List<dynamic>{\"x\", \"y\", \"z\"});"));
+      Assert.IsTrue(code.Contains("string.Join(\",\", new List<dynamic> { \"x\", \"y\", \"z\" });"));
     }
 
 
@@ -209,8 +209,8 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
-      Assert.IsTrue(code.Contains("new List<dynamic>{}.Any();"));
+      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      Assert.IsTrue(code.Contains("new List<dynamic> { }.Any();"));
     }
 
     [TestMethod]
@@ -299,7 +299,7 @@ namespace IronBlock.Tests.Roslyn
           .Generate();
 
       string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
-      Assert.IsTrue(code.Contains("dynamic item; item = new List<dynamic>{}.TakeLast(2).First();"));
+      Assert.IsTrue(code.Contains("dynamic item; item = new List<dynamic> { }.TakeLast(2).First();"));
     }
 
     [TestMethod]
@@ -334,7 +334,7 @@ namespace IronBlock.Tests.Roslyn
           .Generate();
 
       string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
-      Assert.IsTrue(code.Contains("dynamic item; item = new List<dynamic>{}.First();"));
+      Assert.IsTrue(code.Contains("dynamic item; item = new List<dynamic> { }.First();"));
     }
 
     [TestMethod]
@@ -369,7 +369,7 @@ namespace IronBlock.Tests.Roslyn
           .Generate();
 
       string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
-      Assert.IsTrue(code.Contains("dynamic item; item = new List<dynamic>{}.Last();"));
+      Assert.IsTrue(code.Contains("dynamic item; item = new List<dynamic> { }.Last();"));
     }
 
     [TestMethod]
@@ -429,7 +429,7 @@ namespace IronBlock.Tests.Roslyn
           .Generate();
 
       string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
-      Assert.IsTrue(code.Contains("dynamic list; list = new List<dynamic>{10, 20}; list[2 - 1] = 30;"));
+      Assert.IsTrue(code.Contains("dynamic list; list = new List<dynamic> { 10, 20 }; list[2 - 1] = 30;"));
     }
 
     [TestMethod]
@@ -479,7 +479,7 @@ namespace IronBlock.Tests.Roslyn
           .Generate();
 
       string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
-      Assert.IsTrue(code.Contains("dynamic list; list = new List<dynamic>{}; list[list.Count - 2] = 10;"));
+      Assert.IsTrue(code.Contains("dynamic list; list = new List<dynamic> { }; list[list.Count - 2] = 10;"));
     }
 
     [TestMethod]
@@ -524,7 +524,7 @@ namespace IronBlock.Tests.Roslyn
           .Generate();
 
       string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
-      Assert.IsTrue(code.Contains("dynamic list; list = new List<dynamic>{}; list[0] = 10;"));
+      Assert.IsTrue(code.Contains("dynamic list; list = new List<dynamic> { }; list[0] = 10;"));
     }
 
     [TestMethod]
@@ -569,7 +569,7 @@ namespace IronBlock.Tests.Roslyn
           .Generate();
 
       string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
-      Assert.IsTrue(code.Contains("dynamic list; list = new List<dynamic>{}; list[list.Count - 1] = 10;"));
+      Assert.IsTrue(code.Contains("dynamic list; list = new List<dynamic> { }; list[list.Count - 1] = 10;"));
     }
   }
 }
