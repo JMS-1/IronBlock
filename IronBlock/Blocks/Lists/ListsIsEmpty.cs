@@ -4,7 +4,6 @@ using System.Linq;
 using IronBlock.Utils;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
 
 namespace IronBlock.Blocks.Lists
 {
