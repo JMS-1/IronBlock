@@ -45,7 +45,7 @@ Specify any of the following as a second argument
         var parser =
             new Parser()
                 .AddStandardBlocks()
-                .Parse(xml);
+                .ParseXml(xml);
 
         var mode = args.Skip(1).FirstOrDefault();
         if (mode?.Equals("-g") ?? false)

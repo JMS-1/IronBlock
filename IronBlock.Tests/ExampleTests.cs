@@ -15,7 +15,7 @@ namespace IronBlock.Tests
       parser.AddStandardBlocks();
       var printer = parser.AddDebugPrinter();
 
-      parser.Parse(xml).Evaluate();
+      parser.ParseXml(xml).Evaluate();
 
       Assert.AreEqual("2,4,8,16", string.Join(",", TestExtensions.GetDebugText()));
     }
@@ -30,7 +30,7 @@ namespace IronBlock.Tests
       parser.AddStandardBlocks();
       var printer = parser.AddDebugPrinter();
 
-      parser.Parse(xml).Evaluate();
+      parser.ParseXml(xml).Evaluate();
 
       Assert.AreEqual("Don't panic", TestExtensions.GetDebugText().First());
     }

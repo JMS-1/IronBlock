@@ -33,7 +33,7 @@ namespace IronBlock.Tests
       new Parser()
           .AddStandardBlocks()
           .AddDebugPrinter()
-          .Parse(xml)
+          .ParseXml(xml)
           .Evaluate();
 
       Assert.AreEqual("success", TestExtensions.GetDebugText().First());
@@ -104,7 +104,7 @@ namespace IronBlock.Tests
       var parser = new Parser()
           .AddStandardBlocks()
           .AddDebugPrinter()
-          .Parse(xml)
+          .ParseXml(xml)
           .Evaluate();
 
       Assert.AreEqual("0", string.Join(",", TestExtensions.GetDebugText()));
@@ -161,7 +161,7 @@ namespace IronBlock.Tests
       new Parser()
           .AddStandardBlocks()
           .AddDebugPrinter()
-          .Parse(xml)
+          .ParseXml(xml)
           .Evaluate();
 
       Assert.AreEqual("hello,hello,hello", string.Join(",", TestExtensions.GetDebugText()));
@@ -218,7 +218,7 @@ namespace IronBlock.Tests
       new Parser()
           .AddStandardBlocks()
           .AddDebugPrinter()
-          .Parse(xml)
+          .ParseXml(xml)
           .Evaluate();
 
       Assert.AreEqual("hello", string.Join(",", TestExtensions.GetDebugText()));
@@ -271,7 +271,7 @@ namespace IronBlock.Tests
       new Parser()
           .AddStandardBlocks()
           .AddDebugPrinter()
-          .Parse(xml)
+          .ParseXml(xml)
           .Evaluate();
 
       Assert.AreEqual("a|b|c", string.Join("|", TestExtensions.GetDebugText()));
@@ -322,7 +322,7 @@ namespace IronBlock.Tests
       new Parser()
           .AddStandardBlocks()
           .AddDebugPrinter()
-          .Parse(xml)
+          .ParseXml(xml)
           .Evaluate();
 
       Assert.AreEqual("1,2,3", string.Join(",", TestExtensions.GetDebugText()));

@@ -37,7 +37,7 @@ namespace IronBlock.Tests
       var output = new Parser()
         .AddStandardBlocks()
         .AddBlock("text_print", printBlock)
-        .Parse(xml)
+        .ParseXml(xml)
         .Evaluate();
 
       Assert.AreEqual("abc", string.Join("", printBlock.Text));

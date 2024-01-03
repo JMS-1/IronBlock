@@ -58,7 +58,7 @@ namespace IronBlock.Tests
       new Parser()
           .AddStandardBlocks()
           .AddDebugPrinter()
-          .Parse(xml)
+          .ParseXml(xml)
           .Evaluate();
 
       Assert.AreEqual("hello world,hello world,hello world", string.Join(",", TestExtensions.GetDebugText()));
@@ -88,7 +88,7 @@ namespace IronBlock.Tests
 
       var output = new Parser()
           .AddStandardBlocks()
-          .Parse(xml)
+          .ParseXml(xml)
           .Evaluate();
 
       Assert.AreEqual("hello world", output);
@@ -133,7 +133,7 @@ namespace IronBlock.Tests
 
       var output = new Parser()
           .AddStandardBlocks()
-          .Parse(xml)
+          .ParseXml(xml)
           .Evaluate();
 
       Assert.AreEqual("hello world", output);

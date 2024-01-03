@@ -23,7 +23,7 @@ namespace IronBlock.Tests.Roslyn
 ";
       var output = new Parser()
         .AddStandardBlocks()
-        .Parse(xml)
+        .ParseXml(xml)
         .Generate();
 
       var code = output.NormalizeWhitespace().ToFullString();
@@ -48,7 +48,7 @@ namespace IronBlock.Tests.Roslyn
 ";
       var output = new Parser()
         .AddStandardBlocks()
-        .Parse(xml)
+        .ParseXml(xml)
         .Generate();
 
       var code = output.NormalizeWhitespace().ToFullString();
@@ -73,7 +73,7 @@ namespace IronBlock.Tests.Roslyn
 ";
       var output = new Parser()
         .AddStandardBlocks()
-        .Parse(xml)
+        .ParseXml(xml)
         .Generate();
 
       var code = output.NormalizeWhitespace().ToFullString();
@@ -97,7 +97,7 @@ namespace IronBlock.Tests.Roslyn
 ";
       var output = new Parser()
         .AddStandardBlocks()
-        .Parse(xml)
+        .ParseXml(xml)
         .Generate();
 
       var code = output.NormalizeWhitespace().ToFullString();
@@ -148,7 +148,7 @@ namespace IronBlock.Tests.Roslyn
 ";
       var output = new Parser()
         .AddStandardBlocks()
-        .Parse(xml)
+        .ParseXml(xml)
         .Generate();
 
       var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
@@ -197,7 +197,7 @@ namespace IronBlock.Tests.Roslyn
 ";
       var output = new Parser()
         .AddStandardBlocks()
-        .Parse(xml)
+        .ParseXml(xml)
         .Generate();
 
       var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
@@ -227,7 +227,7 @@ namespace IronBlock.Tests.Roslyn
 ";
       var output = new Parser()
         .AddStandardBlocks()
-        .Parse(xml)
+        .ParseXml(xml)
         .Generate();
 
       var code = output.NormalizeWhitespace().ToFullString();
@@ -253,7 +253,7 @@ namespace IronBlock.Tests.Roslyn
 ";
       var blocks = new Parser()
         .AddStandardBlocks()
-        .Parse(xml);
+        .ParseXml(xml);
 
       Assert.AreEqual(1, blocks.Blocks.First().Comments.Count);
       Assert.AreEqual("A test comment", blocks.Blocks.First().Comments.First().Value);

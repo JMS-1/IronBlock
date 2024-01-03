@@ -32,7 +32,7 @@ namespace IronBlock
       return this;
     }
 
-    public Workspace Parse(string xml, bool preserveWhitespace = false)
+    public Workspace ParseXml(string xml, bool preserveWhitespace = false)
     {
       var xdoc = new XmlDocument { PreserveWhitespace = preserveWhitespace };
       xdoc.LoadXml(xml);

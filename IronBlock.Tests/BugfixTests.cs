@@ -53,7 +53,7 @@ namespace IronBlock.Tests
       var output = new Parser()
         .AddStandardBlocks()
         .AddDebugPrinter()
-        .Parse(xml)
+        .ParseXml(xml)
         .Evaluate();
 
       Assert.AreEqual("it worked", TestExtensions.GetDebugText().First());
@@ -99,7 +99,7 @@ namespace IronBlock.Tests
       var output = new Parser()
         .AddStandardBlocks()
         .AddDebugPrinter()
-        .Parse(xml)
+        .ParseXml(xml)
         .Evaluate();
 
       Assert.AreEqual("it worked", TestExtensions.GetDebugText().First());
@@ -138,7 +138,7 @@ namespace IronBlock.Tests
       var output = new Parser()
         .AddStandardBlocks()
         .AddDebugPrinter()
-        .Parse(xml)
+        .ParseXml(xml)
         .Evaluate();
 
       Assert.AreEqual("it worked", TestExtensions.GetDebugText().FirstOrDefault());
@@ -184,7 +184,7 @@ namespace IronBlock.Tests
       var output = new Parser()
         .AddStandardBlocks()
         .AddDebugPrinter()
-        .Parse(xml)
+        .ParseXml(xml)
         .Evaluate();
 
       Assert.AreEqual("it worked", TestExtensions.GetDebugText().First());
@@ -228,7 +228,7 @@ namespace IronBlock.Tests
       var output = new Parser()
         .AddStandardBlocks()
         .AddDebugPrinter()
-        .Parse(xml)
+        .ParseXml(xml)
         .Evaluate();
 
       Assert.AreEqual("it worked", TestExtensions.GetDebugText().First());
@@ -256,7 +256,7 @@ namespace IronBlock.Tests
       context.Variables.Add("x", "bar");
       var output = new Parser()
         .AddStandardBlocks()
-        .Parse(xml)
+        .ParseXml(xml)
         .Evaluate(context);
 
       Assert.AreEqual("foo", context.Variables["x"]);
