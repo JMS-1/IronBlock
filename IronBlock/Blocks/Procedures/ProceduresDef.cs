@@ -153,13 +153,10 @@ namespace IronBlock.Blocks.Text
       return FindEndOfChain(block.Next);
     }
 
-    private class ValueBlock : IBlock
+    private class ValueBlock(Value value) : IBlock
     {
-      private readonly Value value;
-      public ValueBlock(Value value)
-      {
-        this.value = value;
-      }
+      private readonly Value value = value;
+
       public override object Evaluate(Context context)
       {
         return value.Evaluate(context);

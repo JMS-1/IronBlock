@@ -258,28 +258,18 @@ namespace IronBlock
     public IDictionary<string, object> Parameters { get; set; }
   }
 
-  public class Mutation
+  public class Mutation(string domain, string name, string value)
   {
-    public Mutation(string domain, string name, string value)
-    {
-      Domain = domain;
-      Name = name;
-      Value = value;
-    }
-    public string Domain { get; set; }
-    public string Name { get; set; }
-    public string Value { get; set; }
+    public string Domain { get; set; } = domain;
+    public string Name { get; set; } = name;
+    public string Value { get; set; } = value;
 
   }
 
 
-  public class Comment
+  public class Comment(string value)
   {
-    public Comment(string value)
-    {
-      Value = value;
-    }
-    public string Value { get; set; }
+    public string Value { get; set; } = value;
   }
 
 }
