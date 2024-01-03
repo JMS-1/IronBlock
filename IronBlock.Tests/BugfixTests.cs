@@ -50,10 +50,10 @@ namespace IronBlock.Tests
 </xml>
 ";
 
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
         .AddDebugPrinter()
-        .ParseXml(xml)
+        .Parse(xml)
         .Evaluate();
 
       Assert.AreEqual("it worked", TestExtensions.GetDebugText().First());
@@ -96,10 +96,10 @@ namespace IronBlock.Tests
 </xml>
 ";
 
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
         .AddDebugPrinter()
-        .ParseXml(xml)
+        .Parse(xml)
         .Evaluate();
 
       Assert.AreEqual("it worked", TestExtensions.GetDebugText().First());
@@ -135,10 +135,10 @@ namespace IronBlock.Tests
   </block>
 </xml>";
 
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
         .AddDebugPrinter()
-        .ParseXml(xml)
+        .Parse(xml)
         .Evaluate();
 
       Assert.AreEqual("it worked", TestExtensions.GetDebugText().FirstOrDefault());
@@ -181,10 +181,10 @@ namespace IronBlock.Tests
 </xml>
 ";
 
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
         .AddDebugPrinter()
-        .ParseXml(xml)
+        .Parse(xml)
         .Evaluate();
 
       Assert.AreEqual("it worked", TestExtensions.GetDebugText().First());
@@ -225,10 +225,10 @@ namespace IronBlock.Tests
 </xml>
 ";
 
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
         .AddDebugPrinter()
-        .ParseXml(xml)
+        .Parse(xml)
         .Evaluate();
 
       Assert.AreEqual("it worked", TestExtensions.GetDebugText().First());
@@ -254,9 +254,9 @@ namespace IronBlock.Tests
 
       var context = new Context();
       context.Variables.Add("x", "bar");
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml)
+        .Parse(xml)
         .Evaluate(context);
 
       Assert.AreEqual("foo", context.Variables["x"]);

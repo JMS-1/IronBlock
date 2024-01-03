@@ -17,10 +17,10 @@ namespace IronBlock.Tests
 </xml>
 ";
 
-      var parser = new Parser();
+      var parser = Parser.CreateXml();
       parser.AddStandardBlocks();
 
-      var workspace = parser.ParseXml(xml);
+      var workspace = parser.Parse(xml);
 
       Assert.AreEqual(1, workspace.Blocks.Count);
       Assert.AreEqual(1, workspace.Blocks.First().Mutations.Count);
@@ -43,9 +43,9 @@ namespace IronBlock.Tests
   </block>
 </xml>";
 
-      var workspace = new Parser()
+      var workspace = Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml);
+        .Parse(xml);
 
       Assert.AreEqual(0, workspace.Blocks.Count);
     }
@@ -65,10 +65,10 @@ namespace IronBlock.Tests
   </block>
 </xml>";
 
-      new Parser()
+      Parser.CreateXml()
         .AddStandardBlocks()
         .AddDebugPrinter()
-        .ParseXml(xml)
+        .Parse(xml)
         .Evaluate();
 
       Assert.AreEqual("abc", TestExtensions.GetDebugText().First());
@@ -91,10 +91,10 @@ namespace IronBlock.Tests
       var args = new Dictionary<string, object>();
       args.Add("message", "Hello World");
 
-      new Parser()
+      Parser.CreateXml()
         .AddStandardBlocks()
         .AddDebugPrinter()
-        .ParseXml(xml)
+        .Parse(xml)
         .Evaluate(args);
 
       Assert.AreEqual("Hello World", TestExtensions.GetDebugText().First());
@@ -117,9 +117,9 @@ namespace IronBlock.Tests
 
       var args = new Dictionary<string, object>();
 
-      new Parser()
+      Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml)
+        .Parse(xml)
         .Evaluate(args);
 
       Assert.AreEqual("Hello World", args["output"]);

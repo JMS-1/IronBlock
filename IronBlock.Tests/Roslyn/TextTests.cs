@@ -21,9 +21,9 @@ namespace IronBlock.Tests.Roslyn
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml)
+        .Parse(xml)
         .Generate();
 
       var code = output.NormalizeWhitespace().ToFullString();
@@ -46,9 +46,9 @@ namespace IronBlock.Tests.Roslyn
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml)
+        .Parse(xml)
         .Generate();
 
       var code = output.NormalizeWhitespace().ToFullString();
@@ -71,9 +71,9 @@ namespace IronBlock.Tests.Roslyn
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml)
+        .Parse(xml)
         .Generate();
 
       var code = output.NormalizeWhitespace().ToFullString();
@@ -95,9 +95,9 @@ namespace IronBlock.Tests.Roslyn
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml)
+        .Parse(xml)
         .Generate();
 
       var code = output.NormalizeWhitespace().ToFullString();
@@ -146,9 +146,9 @@ namespace IronBlock.Tests.Roslyn
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml)
+        .Parse(xml)
         .Generate();
 
       var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
@@ -195,9 +195,9 @@ namespace IronBlock.Tests.Roslyn
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml)
+        .Parse(xml)
         .Generate();
 
       var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
@@ -225,9 +225,9 @@ namespace IronBlock.Tests.Roslyn
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml)
+        .Parse(xml)
         .Generate();
 
       var code = output.NormalizeWhitespace().ToFullString();
@@ -251,9 +251,9 @@ namespace IronBlock.Tests.Roslyn
   </block>
 </xml>
 ";
-      var blocks = new Parser()
+      var blocks = Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml);
+        .Parse(xml);
 
       Assert.AreEqual(1, blocks.Blocks.First().Comments.Count);
       Assert.AreEqual("A test comment", blocks.Blocks.First().Comments.First().Value);

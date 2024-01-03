@@ -17,9 +17,9 @@ namespace IronBlock.Tests
     </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(true, output);
@@ -47,9 +47,9 @@ namespace IronBlock.Tests
   </block>
 </xml>";
 
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(true, output);
@@ -75,9 +75,9 @@ namespace IronBlock.Tests
     </value>
   </block>
 </xml>";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(false, output);
@@ -97,9 +97,9 @@ namespace IronBlock.Tests
     </value>
   </block>
 </xml>";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(false, output);
@@ -113,9 +113,9 @@ namespace IronBlock.Tests
 <xml>
   <block type=""logic_null""></block>
 </xml>";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(null, output);
@@ -145,9 +145,9 @@ namespace IronBlock.Tests
     </value>
   </block>
 </xml>";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(false, output);
@@ -175,9 +175,9 @@ namespace IronBlock.Tests
   </block>
 </xml>";
 
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(true, output);

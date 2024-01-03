@@ -107,7 +107,7 @@ namespace IronBlock.Blocks
       return name?.Replace(" ", "_");
     }
 
-    public static Parser AddStandardBlocks(this Parser parser)
+    public static T AddStandardBlocks<T>(this T parser) where T : Parser<T>
     {
       parser.AddBlock<ControlsRepeatExt>("controls_repeat_ext");
       parser.AddBlock<ControlsIf>("controls_if");

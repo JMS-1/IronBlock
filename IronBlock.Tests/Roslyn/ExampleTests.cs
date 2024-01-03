@@ -12,9 +12,9 @@ namespace IronBlock.Tests.Roslyn
     {
       var xml = File.ReadAllText("../../../Examples/example1.xml");
 
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Generate();
 
       var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
@@ -27,9 +27,9 @@ namespace IronBlock.Tests.Roslyn
     {
       var xml = File.ReadAllText("../../../Examples/example2.xml");
 
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Generate();
 
       var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
@@ -41,9 +41,9 @@ namespace IronBlock.Tests.Roslyn
     {
       var xml = File.ReadAllText("../../../Examples/example3.xml");
 
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Generate();
 
       var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
@@ -55,9 +55,9 @@ namespace IronBlock.Tests.Roslyn
     {
       var xml = File.ReadAllText("../../../Examples/example4.xml");
 
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
     }

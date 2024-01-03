@@ -43,9 +43,9 @@ Specify any of the following as a second argument
         var xml = File.ReadAllText(filename);
 
         var parser =
-            new Parser()
+            Parser.CreateXml()
                 .AddStandardBlocks()
-                .ParseXml(xml);
+                .Parse(xml);
 
         var mode = args.Skip(1).FirstOrDefault();
         if (mode?.Equals("-g") ?? false)

@@ -17,9 +17,9 @@ namespace IronBlock.Tests
 </xml>
 ";
 
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml)
+        .Parse(xml)
         .Evaluate();
 
       Assert.AreEqual("#ff0000", output);
@@ -35,9 +35,9 @@ namespace IronBlock.Tests
 </xml>
 ";
 
-      var program = new Parser()
+      var program = Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml);
+        .Parse(xml);
 
       var output = program.Evaluate() as string;
 
@@ -75,9 +75,9 @@ namespace IronBlock.Tests
 </xml>
 ";
 
-      var colour = new Parser()
+      var colour = Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml)
+        .Parse(xml)
         .Evaluate() as string;
 
       Assert.AreEqual("#ff0001", colour);
@@ -110,9 +110,9 @@ namespace IronBlock.Tests
 </xml>
 ";
 
-      var colour = new Parser()
+      var colour = Parser.CreateXml()
         .AddStandardBlocks()
-        .ParseXml(xml)
+        .Parse(xml)
         .Evaluate() as string;
 
       Assert.AreEqual("#d60a33", colour);

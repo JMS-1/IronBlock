@@ -51,7 +51,7 @@ using IronBlock;
 using IronBlock.Blocks;
 
 // create a parser
-var parser = new Parser();
+var parser = Parser.CreateXml();
 
 // add the standard blocks to the parser
 parser.AddStandardBlocks();
@@ -70,7 +70,7 @@ args.Add("message", "Hello!");
 workspace.Evaluate(args);
 
 // if your program sets any variable values,
-// you can read then out of the args dictionary 
+// you can read then out of the args dictionary
 ```
 
 ## Custom Blocks
@@ -86,10 +86,10 @@ public class MyCustomBlock : IBlock
     {
         // read a field
         var myField = this.Fields.Get("MY_FIELD");
-        
+
         // evaluate a value
         var myValue = this.Values.Evaluate("MY_VALUE", context);
-        
+
         // evaluate a statement
         var myStatement = this.Statements.Get("MY_STATEMENT");
         myStatement.Evaluate(context); // evaluate your statement
@@ -106,7 +106,7 @@ public class MyCustomBlock : IBlock
 You can then register your block and run it:
 
 ```cs
-var parser = new Parser();
+var parser = Parser.CreateXml();
 parser.AddBlock<MyCustomBlock>("my_custom_block");
 var workspace = parser.Parse(xml);
 workspace.Evaluate();

@@ -30,10 +30,10 @@ namespace IronBlock.Tests
   </block>       
 </xml>
 ";
-      new Parser()
+      Parser.CreateXml()
           .AddStandardBlocks()
           .AddDebugPrinter()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual("success", TestExtensions.GetDebugText().First());
@@ -101,10 +101,10 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var parser = new Parser()
+      var parser = Parser.CreateXml()
           .AddStandardBlocks()
           .AddDebugPrinter()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual("0", string.Join(",", TestExtensions.GetDebugText()));
@@ -158,10 +158,10 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      new Parser()
+      Parser.CreateXml()
           .AddStandardBlocks()
           .AddDebugPrinter()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual("hello,hello,hello", string.Join(",", TestExtensions.GetDebugText()));
@@ -215,10 +215,10 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      new Parser()
+      Parser.CreateXml()
           .AddStandardBlocks()
           .AddDebugPrinter()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual("hello", string.Join(",", TestExtensions.GetDebugText()));
@@ -268,10 +268,10 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      new Parser()
+      Parser.CreateXml()
           .AddStandardBlocks()
           .AddDebugPrinter()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual("a|b|c", string.Join("|", TestExtensions.GetDebugText()));
@@ -319,10 +319,10 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      new Parser()
+      Parser.CreateXml()
           .AddStandardBlocks()
           .AddDebugPrinter()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual("1,2,3", string.Join(",", TestExtensions.GetDebugText()));

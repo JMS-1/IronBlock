@@ -23,9 +23,9 @@ namespace IronBlock.Tests
   </block>        
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(3.0, output);
@@ -47,9 +47,9 @@ namespace IronBlock.Tests
   </block>        
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(System.Math.Sin(System.Math.PI / 4), output);
@@ -66,9 +66,9 @@ namespace IronBlock.Tests
   </block>        
 </xml>
 ";
-      var workspace = new Parser()
+      var workspace = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml);
+          .Parse(xml);
 
       var output = workspace.Evaluate();
       Assert.AreEqual(System.Math.PI, output);
@@ -95,9 +95,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(true, (bool)output);
@@ -120,9 +120,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(true, (bool)output);
@@ -146,9 +146,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(true, (bool)output);
@@ -171,9 +171,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(true, (bool)output);
@@ -196,9 +196,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(false, (bool)output);
@@ -221,9 +221,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(true, (bool)output);
@@ -246,9 +246,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(false, (bool)output);
@@ -276,9 +276,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(true, (bool)output);
@@ -300,9 +300,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(3.0, (double)output);
@@ -324,9 +324,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(4.0, (double)output);
@@ -349,9 +349,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(3.0, (double)output);
@@ -384,9 +384,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(15, (double)output);
@@ -419,9 +419,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(3, (double)output);
@@ -454,9 +454,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(3, (double)output);
@@ -487,9 +487,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(100, (double)output);
@@ -516,9 +516,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.AreEqual(4, (double)output);
@@ -534,9 +534,9 @@ namespace IronBlock.Tests
    <block type=""math_random_float""></block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.IsTrue((double)output >= 0.0);
@@ -563,9 +563,9 @@ namespace IronBlock.Tests
   </block>
 </xml>
 ";
-      var output = new Parser()
+      var output = Parser.CreateXml()
           .AddStandardBlocks()
-          .ParseXml(xml)
+          .Parse(xml)
           .Evaluate();
 
       Assert.IsTrue((double)output >= 1);
@@ -613,10 +613,10 @@ namespace IronBlock.Tests
   </block>
 </xml>";
 
-      var output = new Parser()
+      Parser.CreateXml()
         .AddStandardBlocks()
         .AddDebugPrinter()
-        .ParseXml(xml)
+        .Parse(xml)
         .Evaluate();
 
       Assert.AreEqual("2", TestExtensions.GetDebugText().First());

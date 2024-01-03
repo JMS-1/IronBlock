@@ -34,10 +34,10 @@ namespace IronBlock.Tests
 ";
 
       var printBlock = new CustomPrintBlock();
-      var output = new Parser()
+      var output = Parser.CreateXml()
         .AddStandardBlocks()
         .AddBlock("text_print", printBlock)
-        .ParseXml(xml)
+        .Parse(xml)
         .Evaluate();
 
       Assert.AreEqual("abc", string.Join("", printBlock.Text));

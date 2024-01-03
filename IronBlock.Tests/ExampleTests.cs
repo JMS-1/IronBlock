@@ -10,12 +10,12 @@ namespace IronBlock.Tests
     public void Test_Example1_Xml()
     {
       var xml = File.ReadAllText("../../../Examples/example1.xml");
-      var parser = new Parser();
+      var parser = Parser.CreateXml();
 
       parser.AddStandardBlocks();
       var printer = parser.AddDebugPrinter();
 
-      parser.ParseXml(xml).Evaluate();
+      parser.Parse(xml).Evaluate();
 
       Assert.AreEqual("2,4,8,16", string.Join(",", TestExtensions.GetDebugText()));
     }
@@ -25,12 +25,12 @@ namespace IronBlock.Tests
     public void Test_Example2_Xml()
     {
       var xml = File.ReadAllText("../../../Examples/example2.xml");
-      var parser = new Parser();
+      var parser = Parser.CreateXml();
 
       parser.AddStandardBlocks();
       var printer = parser.AddDebugPrinter();
 
-      parser.ParseXml(xml).Evaluate();
+      parser.Parse(xml).Evaluate();
 
       Assert.AreEqual("Don't panic", TestExtensions.GetDebugText().First());
     }

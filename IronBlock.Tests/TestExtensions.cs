@@ -9,7 +9,7 @@ namespace IronBlock.Tests
 
       static DebugPrint()
       {
-        Text = new List<string>();
+        Text = [];
       }
 
       public override object Evaluate(Context context)
@@ -24,7 +24,7 @@ namespace IronBlock.Tests
       return DebugPrint.Text;
     }
 
-    internal static Parser AddDebugPrinter(this Parser parser)
+    internal static T AddDebugPrinter<T>(this T parser) where T : Parser<T>
     {
       DebugPrint.Text.Clear();
 
