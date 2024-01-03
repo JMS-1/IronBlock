@@ -12,8 +12,8 @@ namespace IronBlock.Blocks.Text
   {
     public override object Evaluate(Context context)
     {
-      var toCase = this.Fields.Get("CASE").ToString();
-      var text = (this.Values.Evaluate("TEXT", context) ?? "").ToString();
+      var toCase = Fields.Get("CASE").ToString();
+      var text = (Values.Evaluate("TEXT", context) ?? "").ToString();
 
       switch (toCase)
       {
@@ -38,10 +38,10 @@ namespace IronBlock.Blocks.Text
 
     public override SyntaxNode Generate(Context context)
     {
-      var textExpression = this.Values.Generate("TEXT", context) as ExpressionSyntax;
+      var textExpression = Values.Generate("TEXT", context) as ExpressionSyntax;
       if (textExpression == null) throw new ApplicationException($"Unknown expression for text.");
 
-      var toCase = this.Fields.Get("CASE");
+      var toCase = Fields.Get("CASE");
       switch (toCase)
       {
         case "UPPERCASE": return SyntaxGenerator.MethodInvokeExpression(textExpression, nameof(string.ToUpper));

@@ -11,9 +11,9 @@ namespace IronBlock.Blocks.Text
   {
     public override object Evaluate(Context context)
     {
-      var inputType = this.Mutations.GetValue("type") ?? "TEXT";
+      var inputType = Mutations.GetValue("type") ?? "TEXT";
 
-      var text = (this.Values.Evaluate("TEXT", context) ?? "").ToString();
+      var text = (Values.Evaluate("TEXT", context) ?? "").ToString();
 
       if (!string.IsNullOrWhiteSpace(text))
       {
@@ -32,9 +32,9 @@ namespace IronBlock.Blocks.Text
 
     public override SyntaxNode Generate(Context context)
     {
-      var inputType = this.Mutations.GetValue("type") ?? "TEXT";
+      var inputType = Mutations.GetValue("type") ?? "TEXT";
 
-      var expression = this.Values.Generate("TEXT", context) as ExpressionSyntax;
+      var expression = Values.Generate("TEXT", context) as ExpressionSyntax;
       if (expression != null)
       {
         context.Statements.Add(

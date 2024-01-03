@@ -12,8 +12,8 @@ namespace IronBlock.Blocks.Text
   {
     public override object Evaluate(Context context)
     {
-      var name = this.Fields.Get("NAME");
-      var statement = this.Statements.FirstOrDefault(x => x.Name == "STACK");
+      var name = Fields.Get("NAME");
+      var statement = Statements.FirstOrDefault(x => x.Name == "STACK");
 
       if (string.IsNullOrWhiteSpace(name)) return null;
 
@@ -28,9 +28,9 @@ namespace IronBlock.Blocks.Text
       }
 
       // tack the return value on as a block at the end of the statement
-      if (this.Values.Any(x => x.Name == "RETURN"))
+      if (Values.Any(x => x.Name == "RETURN"))
       {
-        var valueBlock = new ValueBlock(this.Values.First(x => x.Name == "RETURN"));
+        var valueBlock = new ValueBlock(Values.First(x => x.Name == "RETURN"));
         if (statement.Block == null)
         {
           statement.Block = valueBlock;
@@ -55,8 +55,8 @@ namespace IronBlock.Blocks.Text
 
     public override SyntaxNode Generate(Context context)
     {
-      var name = this.Fields.Get("NAME").CreateValidName();
-      var statement = this.Statements.FirstOrDefault(x => x.Name == "STACK");
+      var name = Fields.Get("NAME").CreateValidName();
+      var statement = Statements.FirstOrDefault(x => x.Name == "STACK");
 
       if (string.IsNullOrWhiteSpace(name)) return null;
 
@@ -73,9 +73,9 @@ namespace IronBlock.Blocks.Text
       ReturnStatementSyntax returnStatement = null;
 
       // tack the return value on as a block at the end of the statement
-      if (this.Values.Any(x => x.Name == "RETURN"))
+      if (Values.Any(x => x.Name == "RETURN"))
       {
-        var returnValue = this.Values.First(x => x.Name == "RETURN");
+        var returnValue = Values.First(x => x.Name == "RETURN");
         var returnExpression = returnValue.Generate(context) as ExpressionSyntax;
         if (returnExpression == null) throw new ApplicationException($"Unknown expression for return statement.");
 
@@ -86,7 +86,7 @@ namespace IronBlock.Blocks.Text
 
       var procedureContext = new ProcedureContext() { Parent = context };
 
-      foreach (var mutation in this.Mutations.Where(x => x.Domain == "arg" && x.Name == "name"))
+      foreach (var mutation in Mutations.Where(x => x.Domain == "arg" && x.Name == "name"))
       {
         string parameterName = mutation.Value.CreateValidName();
 
@@ -160,7 +160,7 @@ namespace IronBlock.Blocks.Text
       }
       public override object Evaluate(Context context)
       {
-        return this.value.Evaluate(context);
+        return value.Evaluate(context);
       }
     }
 

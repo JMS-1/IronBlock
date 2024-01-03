@@ -9,12 +9,12 @@ namespace IronBlock.Blocks.Math
   {
     public override object Evaluate(Context context)
     {
-      return double.Parse(this.Fields.Get("NUM"), CultureInfo.InvariantCulture);
+      return double.Parse(Fields.Get("NUM"), CultureInfo.InvariantCulture);
     }
 
     public override SyntaxNode Generate(Context context)
     {
-      var value = double.Parse(this.Fields.Get("NUM"), CultureInfo.InvariantCulture);
+      var value = double.Parse(Fields.Get("NUM"), CultureInfo.InvariantCulture);
       return LiteralExpression(
         SyntaxKind.NumericLiteralExpression,
         Literal(value)

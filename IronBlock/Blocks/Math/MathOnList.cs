@@ -12,8 +12,8 @@ namespace IronBlock.Blocks.Math
     static Random rnd = new Random();
     public override object Evaluate(Context context)
     {
-      var op = this.Fields.Get("OP");
-      var list = this.Values.Evaluate("LIST", context) as IEnumerable<object>;
+      var op = Fields.Get("OP");
+      var list = Values.Evaluate("LIST", context) as IEnumerable<object>;
 
       var doubleList = list.Select(x => (double)x).ToArray();
 
@@ -36,10 +36,10 @@ namespace IronBlock.Blocks.Math
 
     public override SyntaxNode Generate(Context context)
     {
-      var listExpression = this.Values.Generate("LIST", context) as ExpressionSyntax;
+      var listExpression = Values.Generate("LIST", context) as ExpressionSyntax;
       if (listExpression == null) throw new ApplicationException($"Unknown expression for list.");
 
-      var op = this.Fields.Get("OP");
+      var op = Fields.Get("OP");
 
       switch (op)
       {

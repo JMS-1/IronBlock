@@ -4,7 +4,7 @@ namespace IronBlock.Blocks.Text
   {
     public override object Evaluate(Context context)
     {
-      return this.Fields.Get("COLOUR") ?? "#000000";
+      return Fields.Get("COLOUR") ?? "#000000";
     }
   }
 

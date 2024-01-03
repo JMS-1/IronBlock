@@ -11,8 +11,8 @@ namespace IronBlock.Blocks.Math
   {
     public override object Evaluate(Context context)
     {
-      var op = this.Fields.Get("OP");
-      var number = (double)this.Values.Evaluate("NUM", context);
+      var op = Fields.Get("OP");
+      var number = (double)Values.Evaluate("NUM", context);
 
       switch (op)
       {
@@ -37,8 +37,8 @@ namespace IronBlock.Blocks.Math
 
     public override SyntaxNode Generate(Context context)
     {
-      var op = this.Fields.Get("OP");
-      var numberExpression = this.Values.Generate("NUM", context) as ExpressionSyntax;
+      var op = Fields.Get("OP");
+      var numberExpression = Values.Generate("NUM", context) as ExpressionSyntax;
       if (numberExpression == null) throw new ApplicationException($"Unknown expression for number.");
 
       switch (op)

@@ -12,8 +12,8 @@ namespace IronBlock.Blocks.Text
     {
       var variables = context.Variables;
 
-      var variableName = this.Fields.Get("VAR");
-      var textToAppend = (this.Values.Evaluate("TEXT", context) ?? "").ToString();
+      var variableName = Fields.Get("VAR");
+      var textToAppend = (Values.Evaluate("TEXT", context) ?? "").ToString();
 
       if (!variables.ContainsKey(variableName))
       {
@@ -29,9 +29,9 @@ namespace IronBlock.Blocks.Text
     public override SyntaxNode Generate(Context context)
     {
       var variables = context.Variables;
-      var variableName = this.Fields.Get("VAR").CreateValidName();
+      var variableName = Fields.Get("VAR").CreateValidName();
 
-      var textExpression = this.Values.Generate("TEXT", context) as ExpressionSyntax;
+      var textExpression = Values.Generate("TEXT", context) as ExpressionSyntax;
       if (textExpression == null)
         throw new ApplicationException($"Unknown expression for text.");
 

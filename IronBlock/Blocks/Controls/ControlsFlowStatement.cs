@@ -8,7 +8,7 @@ namespace IronBlock.Blocks.Controls
   {
     public override object Evaluate(Context context)
     {
-      var flow = this.Fields.Get("FLOW");
+      var flow = Fields.Get("FLOW");
       if (flow == "CONTINUE")
       {
         context.EscapeMode = EscapeMode.Continue;
@@ -26,7 +26,7 @@ namespace IronBlock.Blocks.Controls
 
     public override SyntaxNode Generate(Context context)
     {
-      var flow = this.Fields.Get("FLOW");
+      var flow = Fields.Get("FLOW");
       if (flow == "CONTINUE")
       {
         return ContinueStatement();

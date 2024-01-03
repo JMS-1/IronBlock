@@ -11,10 +11,10 @@ namespace IronBlock.Blocks.Math
   {
     public override object Evaluate(Context context)
     {
-      var a = (double)this.Values.Evaluate("A", context);
-      var b = (double)this.Values.Evaluate("B", context);
+      var a = (double)Values.Evaluate("A", context);
+      var b = (double)Values.Evaluate("B", context);
 
-      var opValue = this.Fields.Get("OP");
+      var opValue = Fields.Get("OP");
 
       switch (opValue)
       {
@@ -30,15 +30,15 @@ namespace IronBlock.Blocks.Math
 
     public override SyntaxNode Generate(Context context)
     {
-      var firstExpression = this.Values.Generate("A", context) as ExpressionSyntax;
+      var firstExpression = Values.Generate("A", context) as ExpressionSyntax;
       if (firstExpression == null) throw new ApplicationException($"Unknown expression for value A.");
 
-      var secondExpression = this.Values.Generate("B", context) as ExpressionSyntax;
+      var secondExpression = Values.Generate("B", context) as ExpressionSyntax;
       if (secondExpression == null) throw new ApplicationException($"Unknown expression for value B.");
 
       ExpressionSyntax expression = null;
 
-      var opValue = this.Fields.Get("OP");
+      var opValue = Fields.Get("OP");
       if (opValue == "POWER")
       {
         expression =

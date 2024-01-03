@@ -14,13 +14,13 @@ namespace IronBlock.Blocks.Text
   {
     public override object Evaluate(Context context)
     {
-      var items = int.Parse(this.Mutations.GetValue("items"));
+      var items = int.Parse(Mutations.GetValue("items"));
 
       var sb = new StringBuilder();
       for (var i = 0; i < items; i++)
       {
-        if (!this.Values.Any(x => x.Name == $"ADD{i}")) continue;
-        sb.Append(this.Values.Evaluate($"ADD{i}", context));
+        if (!Values.Any(x => x.Name == $"ADD{i}")) continue;
+        sb.Append(Values.Evaluate($"ADD{i}", context));
       }
 
       return sb.ToString();
@@ -28,14 +28,14 @@ namespace IronBlock.Blocks.Text
 
     public override SyntaxNode Generate(Context context)
     {
-      var items = int.Parse(this.Mutations.GetValue("items"));
+      var items = int.Parse(Mutations.GetValue("items"));
 
       var arguments = new List<ExpressionSyntax>();
 
       for (var i = 0; i < items; i++)
       {
-        if (!this.Values.Any(x => x.Name == $"ADD{i}")) continue;
-        var addExpression = this.Values.Generate($"ADD{i}", context) as ExpressionSyntax;
+        if (!Values.Any(x => x.Name == $"ADD{i}")) continue;
+        var addExpression = Values.Generate($"ADD{i}", context) as ExpressionSyntax;
         if (addExpression == null) throw new ApplicationException($"Unknown expression for ADD{i}.");
 
         arguments.Add(addExpression);

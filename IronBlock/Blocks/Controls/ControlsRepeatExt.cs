@@ -11,11 +11,11 @@ namespace IronBlock.Blocks.Controls
   {
     public override object Evaluate(Context context)
     {
-      var timesValue = (double)this.Values.Evaluate("TIMES", context);
+      var timesValue = (double)Values.Evaluate("TIMES", context);
 
-      if (!this.Statements.Any(x => x.Name == "DO")) return base.Evaluate(context);
+      if (!Statements.Any(x => x.Name == "DO")) return base.Evaluate(context);
 
-      var statement = this.Statements.Get("DO");
+      var statement = Statements.Get("DO");
 
       for (var i = 0; i < timesValue; i++)
       {
@@ -37,12 +37,12 @@ namespace IronBlock.Blocks.Controls
 
     public override SyntaxNode Generate(Context context)
     {
-      var timesExpression = this.Values.Generate("TIMES", context) as ExpressionSyntax;
+      var timesExpression = Values.Generate("TIMES", context) as ExpressionSyntax;
       if (timesExpression == null) throw new ApplicationException($"Unknown expression for times.");
 
-      if (!this.Statements.Any(x => x.Name == "DO")) return base.Generate(context);
+      if (!Statements.Any(x => x.Name == "DO")) return base.Generate(context);
 
-      var statement = this.Statements.Get("DO");
+      var statement = Statements.Get("DO");
 
       var forContext = new Context() { Parent = context };
       if (statement?.Block != null)

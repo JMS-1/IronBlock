@@ -10,12 +10,12 @@ namespace IronBlock.Blocks.Logic
   {
     public override object Evaluate(Context context)
     {
-      return !((bool)(this.Values.Evaluate("BOOL", context) ?? false));
+      return !((bool)(Values.Evaluate("BOOL", context) ?? false));
     }
 
     public override SyntaxNode Generate(Context context)
     {
-      var boolExpression = this.Values.Generate("BOOL", context) as ExpressionSyntax;
+      var boolExpression = Values.Generate("BOOL", context) as ExpressionSyntax;
       if (boolExpression == null) throw new ApplicationException($"Unknown expression for negate.");
 
       return PrefixUnaryExpression(SyntaxKind.LogicalNotExpression, boolExpression);

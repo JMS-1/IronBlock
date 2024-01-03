@@ -11,24 +11,24 @@ namespace IronBlock
 
     public Parser AddBlock<T>(string type) where T : IBlock, new()
     {
-      this.AddBlock(type, () => new T());
+      AddBlock(type, () => new T());
       return this;
     }
 
     public Parser AddBlock<T>(string type, T block) where T : IBlock
     {
-      this.AddBlock(type, () => block);
+      AddBlock(type, () => block);
       return this;
     }
 
     public Parser AddBlock(string type, Func<IBlock> blockFactory)
     {
-      if (this.blocks.ContainsKey(type))
+      if (blocks.ContainsKey(type))
       {
-        this.blocks[type] = blockFactory;
+        blocks[type] = blockFactory;
         return this;
       }
-      this.blocks.Add(type, blockFactory);
+      blocks.Add(type, blockFactory);
       return this;
     }
 
@@ -93,8 +93,8 @@ namespace IronBlock
       if (bool.Parse(node.GetAttribute("disabled") ?? "false")) return null;
 
       var type = node.GetAttribute("type");
-      if (!this.blocks.ContainsKey(type)) throw new ApplicationException($"block type not registered: '{type}'");
-      var block = this.blocks[type]();
+      if (!blocks.ContainsKey(type)) throw new ApplicationException($"block type not registered: '{type}'");
+      var block = blocks[type]();
 
       block.Type = type;
       block.Id = node.GetAttribute("id");

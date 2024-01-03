@@ -10,7 +10,7 @@ namespace IronBlock.Blocks.Math
   {
     public override object Evaluate(Context context)
     {
-      var constant = this.Fields.Get("CONSTANT");
+      var constant = Fields.Get("CONSTANT");
       return GetValue(constant);
     }
 
@@ -30,7 +30,7 @@ namespace IronBlock.Blocks.Math
 
     public override SyntaxNode Generate(Context context)
     {
-      var constant = this.Fields.Get("CONSTANT");
+      var constant = Fields.Get("CONSTANT");
 
       switch (constant)
       {

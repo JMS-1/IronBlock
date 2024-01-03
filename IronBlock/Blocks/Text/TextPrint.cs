@@ -10,7 +10,7 @@ namespace IronBlock.Blocks.Text
   {
     public override object Evaluate(Context context)
     {
-      var text = this.Values.Evaluate("TEXT", context);
+      var text = Values.Evaluate("TEXT", context);
 
       Console.WriteLine(text);
 
@@ -19,7 +19,7 @@ namespace IronBlock.Blocks.Text
 
     public override SyntaxNode Generate(Context context)
     {
-      SyntaxNode syntaxNode = this.Values.Generate("TEXT", context);
+      SyntaxNode syntaxNode = Values.Generate("TEXT", context);
       var expression = syntaxNode as ExpressionSyntax;
       if (expression == null) throw new ApplicationException($"Unknown expression for text.");
 

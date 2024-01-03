@@ -11,13 +11,13 @@ namespace IronBlock.Blocks.Controls
   {
     public override object Evaluate(Context context)
     {
-      var variableName = this.Fields.Get("VAR");
+      var variableName = Fields.Get("VAR");
 
-      var fromValue = (double)this.Values.Evaluate("FROM", context);
-      var toValue = (double)this.Values.Evaluate("TO", context);
-      var byValue = (double)this.Values.Evaluate("BY", context);
+      var fromValue = (double)Values.Evaluate("FROM", context);
+      var toValue = (double)Values.Evaluate("TO", context);
+      var byValue = (double)Values.Evaluate("BY", context);
 
-      var statement = this.Statements.FirstOrDefault();
+      var statement = Statements.FirstOrDefault();
 
 
       if (context.Variables.ContainsKey(variableName))
@@ -41,18 +41,18 @@ namespace IronBlock.Blocks.Controls
 
     public override SyntaxNode Generate(Context context)
     {
-      var variableName = this.Fields.Get("VAR").CreateValidName();
+      var variableName = Fields.Get("VAR").CreateValidName();
 
-      var fromValueExpression = this.Values.Generate("FROM", context) as ExpressionSyntax;
+      var fromValueExpression = Values.Generate("FROM", context) as ExpressionSyntax;
       if (fromValueExpression == null) throw new ApplicationException($"Unknown expression for from value.");
 
-      var toValueExpression = this.Values.Generate("TO", context) as ExpressionSyntax;
+      var toValueExpression = Values.Generate("TO", context) as ExpressionSyntax;
       if (toValueExpression == null) throw new ApplicationException($"Unknown expression for to value.");
 
-      var byValueExpression = this.Values.Generate("BY", context) as ExpressionSyntax;
+      var byValueExpression = Values.Generate("BY", context) as ExpressionSyntax;
       if (byValueExpression == null) throw new ApplicationException($"Unknown expression for by value.");
 
-      var statement = this.Statements.FirstOrDefault();
+      var statement = Statements.FirstOrDefault();
 
       var rootContext = context.GetRootContext();
       if (!rootContext.Variables.ContainsKey(variableName))

@@ -10,10 +10,10 @@ namespace IronBlock.Blocks.Logic
   {
     public override object Evaluate(Context context)
     {
-      var a = (bool)(this.Values.Evaluate("A", context) ?? false);
-      var b = (bool)(this.Values.Evaluate("B", context) ?? false);
+      var a = (bool)(Values.Evaluate("A", context) ?? false);
+      var b = (bool)(Values.Evaluate("B", context) ?? false);
 
-      var op = this.Fields.Get("OP");
+      var op = Fields.Get("OP");
 
       switch (op)
       {
@@ -26,13 +26,13 @@ namespace IronBlock.Blocks.Logic
 
     public override SyntaxNode Generate(Context context)
     {
-      var firstExpression = this.Values.Generate("A", context) as ExpressionSyntax;
+      var firstExpression = Values.Generate("A", context) as ExpressionSyntax;
       if (firstExpression == null) throw new ApplicationException($"Unknown expression for value A.");
 
-      var secondExpression = this.Values.Generate("B", context) as ExpressionSyntax;
+      var secondExpression = Values.Generate("B", context) as ExpressionSyntax;
       if (secondExpression == null) throw new ApplicationException($"Unknown expression for value B.");
 
-      var opValue = this.Fields.Get("OP");
+      var opValue = Fields.Get("OP");
 
       var binaryOperator = GetBinaryOperator(opValue);
       var expression = BinaryExpression(binaryOperator, firstExpression, secondExpression);

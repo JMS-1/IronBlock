@@ -13,7 +13,7 @@ namespace IronBlock.Blocks.Text
     {
       // todo: add guard for missing name
 
-      var name = this.Mutations.GetValue("name");
+      var name = Mutations.GetValue("name");
 
       if (!context.Functions.ContainsKey(name)) throw new MissingMethodException($"Method ${name} not defined");
 
@@ -23,9 +23,9 @@ namespace IronBlock.Blocks.Text
       funcContext.Functions = context.Functions;
 
       var counter = 0;
-      foreach (var mutation in this.Mutations.Where(x => x.Domain == "arg" && x.Name == "name"))
+      foreach (var mutation in Mutations.Where(x => x.Domain == "arg" && x.Name == "name"))
       {
-        var value = this.Values.Evaluate($"ARG{counter}", context);
+        var value = Values.Evaluate($"ARG{counter}", context);
         funcContext.Variables.Add(mutation.Value, value);
         counter++;
       }
@@ -44,7 +44,7 @@ namespace IronBlock.Blocks.Text
       var counter = 0;
       foreach (var mutation in Mutations.Where(x => x.Domain == "arg" && x.Name == "name"))
       {
-        var argumentExpression = this.Values.Generate($"ARG{counter}", context) as ExpressionSyntax;
+        var argumentExpression = Values.Generate($"ARG{counter}", context) as ExpressionSyntax;
         if (argumentExpression == null)
           throw new ApplicationException($"Unknown argument expression for ARG{counter}.");
 

@@ -16,19 +16,19 @@ namespace IronBlock.Blocks.Lists
     public override object Evaluate(Context context)
     {
 
-      var values = this.Values.Evaluate("VALUE", context) as List<object>;
-      var mode = this.Fields.Get("MODE");
-      var where = this.Fields.Get("WHERE");
+      var values = Values.Evaluate("VALUE", context) as List<object>;
+      var mode = Fields.Get("MODE");
+      var where = Fields.Get("WHERE");
 
       var index = -1;
       switch (where)
       {
         case "FROM_START":
-          index = Convert.ToInt32(this.Values.Evaluate("AT", context)) - 1;
+          index = Convert.ToInt32(Values.Evaluate("AT", context)) - 1;
           break;
 
         case "FROM_END":
-          index = values.Count - Convert.ToInt32(this.Values.Evaluate("AT", context));
+          index = values.Count - Convert.ToInt32(Values.Evaluate("AT", context));
           break;
 
         case "FIRST":
@@ -70,16 +70,16 @@ namespace IronBlock.Blocks.Lists
 
     public override SyntaxNode Generate(Context context)
     {
-      var valueExpression = this.Values.Generate("VALUE", context) as ExpressionSyntax;
+      var valueExpression = Values.Generate("VALUE", context) as ExpressionSyntax;
       if (valueExpression == null) throw new ApplicationException($"Unknown expression for value.");
 
       ExpressionSyntax atExpression = null;
-      if (this.Values.Any(x => x.Name == "AT"))
+      if (Values.Any(x => x.Name == "AT"))
       {
-        atExpression = this.Values.Generate("AT", context) as ExpressionSyntax;
+        atExpression = Values.Generate("AT", context) as ExpressionSyntax;
       }
 
-      var mode = this.Fields.Get("MODE");
+      var mode = Fields.Get("MODE");
       switch (mode)
       {
         case "GET":
@@ -89,7 +89,7 @@ namespace IronBlock.Blocks.Lists
         default: throw new NotSupportedException($"unknown mode {mode}");
       }
 
-      var where = this.Fields.Get("WHERE");
+      var where = Fields.Get("WHERE");
       switch (where)
       {
         case "FROM_START":

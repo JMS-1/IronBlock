@@ -11,12 +11,12 @@ namespace IronBlock.Blocks.Controls
   {
     public override object Evaluate(Context context)
     {
-      var mode = this.Fields.Get("MODE");
-      var value = this.Values.FirstOrDefault(x => x.Name == "BOOL");
+      var mode = Fields.Get("MODE");
+      var value = Values.FirstOrDefault(x => x.Name == "BOOL");
 
-      if (!this.Statements.Any(x => x.Name == "DO") || null == value) return base.Evaluate(context);
+      if (!Statements.Any(x => x.Name == "DO") || null == value) return base.Evaluate(context);
 
-      var statement = this.Statements.Get("DO");
+      var statement = Statements.Get("DO");
 
       if (mode == "WHILE")
       {
@@ -43,12 +43,12 @@ namespace IronBlock.Blocks.Controls
 
     public override SyntaxNode Generate(Context context)
     {
-      var mode = this.Fields.Get("MODE");
-      var value = this.Values.FirstOrDefault(x => x.Name == "BOOL");
+      var mode = Fields.Get("MODE");
+      var value = Values.FirstOrDefault(x => x.Name == "BOOL");
 
-      if (!this.Statements.Any(x => x.Name == "DO") || null == value) return base.Generate(context);
+      if (!Statements.Any(x => x.Name == "DO") || null == value) return base.Generate(context);
 
-      var statement = this.Statements.Get("DO");
+      var statement = Statements.Get("DO");
 
       var conditionExpression = value.Generate(context) as ExpressionSyntax;
       if (conditionExpression == null) throw new ApplicationException($"Unknown expression for condition.");

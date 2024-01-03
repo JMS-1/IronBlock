@@ -6,8 +6,8 @@ namespace IronBlock.Blocks.Math
   {
     public override object Evaluate(Context context)
     {
-      var variableName = this.Fields.Get("VAR");
-      var delta = (double)this.Values.Evaluate("DELTA", context);
+      var variableName = Fields.Get("VAR");
+      var delta = (double)Values.Evaluate("DELTA", context);
 
       if (context.Variables.ContainsKey(variableName))
       {

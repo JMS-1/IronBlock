@@ -12,7 +12,7 @@ namespace IronBlock.Blocks.Lists
     public override object Evaluate(Context context)
     {
       var list = new List<object>();
-      foreach (var value in this.Values)
+      foreach (var value in Values)
       {
         list.Add(value.Evaluate(context));
 
@@ -25,7 +25,7 @@ namespace IronBlock.Blocks.Lists
     {
       var expressions = new List<ExpressionSyntax>();
 
-      foreach (var value in this.Values)
+      foreach (var value in Values)
       {
         var itemExpression = value.Generate(context) as ExpressionSyntax;
         if (itemExpression == null) throw new ApplicationException($"Unknown expression for item.");

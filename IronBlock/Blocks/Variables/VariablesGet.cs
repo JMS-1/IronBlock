@@ -7,7 +7,7 @@ namespace IronBlock.Blocks.Variables
   {
     public override object Evaluate(Context context)
     {
-      var variableName = this.Fields.Get("VAR");
+      var variableName = Fields.Get("VAR");
 
       // Fast-Solution
       if (!context.Variables.ContainsKey(variableName))
@@ -23,7 +23,7 @@ namespace IronBlock.Blocks.Variables
 
     public override SyntaxNode Generate(Context context)
     {
-      var variableName = this.Fields.Get("VAR").CreateValidName();
+      var variableName = Fields.Get("VAR").CreateValidName();
 
       return IdentifierName(variableName);
     }

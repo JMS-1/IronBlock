@@ -9,9 +9,9 @@ namespace IronBlock.Blocks.Lists
   {
     public override object Evaluate(Context context)
     {
-      var direction = this.Fields.Get("END");
-      var value = this.Values.Evaluate("VALUE", context) as IEnumerable<object>;
-      var find = this.Values.Evaluate("FIND", context);
+      var direction = Fields.Get("END");
+      var value = Values.Evaluate("VALUE", context) as IEnumerable<object>;
+      var find = Values.Evaluate("FIND", context);
 
       switch (direction)
       {

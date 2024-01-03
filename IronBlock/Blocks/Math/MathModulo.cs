@@ -10,18 +10,18 @@ namespace IronBlock.Blocks.Math
   {
     public override object Evaluate(Context context)
     {
-      var dividend = (double)this.Values.Evaluate("DIVIDEND", context);
-      var divisor = (double)this.Values.Evaluate("DIVISOR", context);
+      var dividend = (double)Values.Evaluate("DIVIDEND", context);
+      var divisor = (double)Values.Evaluate("DIVISOR", context);
 
       return dividend % divisor;
     }
 
     public override SyntaxNode Generate(Context context)
     {
-      var dividendExpression = this.Values.Generate("DIVIDEND", context) as ExpressionSyntax;
+      var dividendExpression = Values.Generate("DIVIDEND", context) as ExpressionSyntax;
       if (dividendExpression == null) throw new ApplicationException($"Unknown expression for dividend.");
 
-      var divisorExpression = this.Values.Generate("DIVISOR", context) as ExpressionSyntax;
+      var divisorExpression = Values.Generate("DIVISOR", context) as ExpressionSyntax;
       if (divisorExpression == null) throw new ApplicationException($"Unknown expression for divisor.");
 
       return BinaryExpression(

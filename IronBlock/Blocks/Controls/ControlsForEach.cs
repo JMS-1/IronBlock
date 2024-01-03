@@ -10,10 +10,10 @@ namespace IronBlock.Blocks.Controls
   {
     public override object Evaluate(Context context)
     {
-      var variableName = this.Fields.Get("VAR");
-      var list = this.Values.Evaluate("LIST", context) as IEnumerable<object>;
+      var variableName = Fields.Get("VAR");
+      var list = Values.Evaluate("LIST", context) as IEnumerable<object>;
 
-      var statement = this.Statements.Where(x => x.Name == "DO").FirstOrDefault();
+      var statement = Statements.Where(x => x.Name == "DO").FirstOrDefault();
 
       if (null == statement) return base.Evaluate(context);
 
@@ -35,11 +35,11 @@ namespace IronBlock.Blocks.Controls
 
     public override SyntaxNode Generate(Context context)
     {
-      var variableName = this.Fields.Get("VAR").CreateValidName();
-      var listExpression = this.Values.Generate("LIST", context) as ExpressionSyntax;
+      var variableName = Fields.Get("VAR").CreateValidName();
+      var listExpression = Values.Generate("LIST", context) as ExpressionSyntax;
       if (listExpression == null) throw new ApplicationException($"Unknown expression for list.");
 
-      var statement = this.Statements.Where(x => x.Name == "DO").FirstOrDefault();
+      var statement = Statements.Where(x => x.Name == "DO").FirstOrDefault();
 
       if (null == statement) return base.Generate(context);
 

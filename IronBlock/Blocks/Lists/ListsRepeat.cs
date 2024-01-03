@@ -12,8 +12,8 @@ namespace IronBlock.Blocks.Lists
   {
     public override object Evaluate(Context context)
     {
-      var item = this.Values.Evaluate("ITEM", context);
-      var num = (double)this.Values.Evaluate("NUM", context);
+      var item = Values.Evaluate("ITEM", context);
+      var num = (double)Values.Evaluate("NUM", context);
 
       var list = new List<object>();
       for (var i = 0; i < num; i++)
@@ -27,10 +27,10 @@ namespace IronBlock.Blocks.Lists
 
     public override SyntaxNode Generate(Context context)
     {
-      var itemExpression = this.Values.Generate("ITEM", context) as ExpressionSyntax;
+      var itemExpression = Values.Generate("ITEM", context) as ExpressionSyntax;
       if (itemExpression == null) throw new ApplicationException($"Unknown expression for item.");
 
-      var numExpression = this.Values.Generate("NUM", context) as ExpressionSyntax;
+      var numExpression = Values.Generate("NUM", context) as ExpressionSyntax;
       if (numExpression == null) throw new ApplicationException($"Unknown expression for number.");
 
       return SyntaxGenerator.MethodInvokeExpression(

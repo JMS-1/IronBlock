@@ -14,9 +14,9 @@ namespace IronBlock.Blocks.Lists
   {
     public override object Evaluate(Context context)
     {
-      var mode = this.Fields.Get("MODE");
-      var input = this.Values.Evaluate("INPUT", context);
-      var delim = this.Values.Evaluate("DELIM", context);
+      var mode = Fields.Get("MODE");
+      var input = Values.Evaluate("INPUT", context);
+      var delim = Values.Evaluate("DELIM", context);
 
       switch (mode)
       {
@@ -40,11 +40,11 @@ namespace IronBlock.Blocks.Lists
 
     public override SyntaxNode Generate(Context context)
     {
-      var mode = this.Fields.Get("MODE");
-      var inputExpression = this.Values.Generate("INPUT", context) as ExpressionSyntax;
+      var mode = Fields.Get("MODE");
+      var inputExpression = Values.Generate("INPUT", context) as ExpressionSyntax;
       if (inputExpression == null) throw new ApplicationException($"Unknown expression for input.");
 
-      var delimExpression = this.Values.Generate("DELIM", context) as ExpressionSyntax;
+      var delimExpression = Values.Generate("DELIM", context) as ExpressionSyntax;
       if (delimExpression == null) throw new ApplicationException($"Unknown expression for delim.");
 
       switch (mode)

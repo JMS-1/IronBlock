@@ -13,9 +13,9 @@ namespace IronBlock.Blocks.Controls
     {
 
       var ifCount = 1;
-      if (null != this.Mutations.GetValue("elseif"))
+      if (null != Mutations.GetValue("elseif"))
       {
-        var elseIf = this.Mutations.GetValue("elseif");
+        var elseIf = Mutations.GetValue("elseif");
         ifCount = int.Parse(elseIf) + 1;
       }
 
@@ -24,7 +24,7 @@ namespace IronBlock.Blocks.Controls
       {
         if ((bool)Values.Evaluate($"IF{i}", context))
         {
-          var statement = this.Statements.Get($"DO{i}");
+          var statement = Statements.Get($"DO{i}");
           statement.Evaluate(context);
           done = true;
           break;
@@ -33,12 +33,12 @@ namespace IronBlock.Blocks.Controls
 
       if (!done)
       {
-        if (null != this.Mutations.GetValue("else"))
+        if (null != Mutations.GetValue("else"))
         {
-          var elseExists = this.Mutations.GetValue("else");
+          var elseExists = Mutations.GetValue("else");
           if (elseExists == "1")
           {
-            var statement = this.Statements.Get("ELSE");
+            var statement = Statements.Get("ELSE");
             statement.Evaluate(context);
           }
         }
@@ -50,7 +50,7 @@ namespace IronBlock.Blocks.Controls
     public override SyntaxNode Generate(Context context)
     {
       var ifCount = 1;
-      string elseifMutation = this.Mutations.GetValue("elseif");
+      string elseifMutation = Mutations.GetValue("elseif");
       if (!string.IsNullOrEmpty(elseifMutation))
       {
         var elseIf = elseifMutation;
@@ -64,7 +64,7 @@ namespace IronBlock.Blocks.Controls
         var conditional = Values.Generate($"IF{i}", context) as ExpressionSyntax;
         if (conditional == null) throw new ApplicationException($"Unknown expression for condition.");
 
-        var statement = this.Statements.Get($"DO{i}");
+        var statement = Statements.Get($"DO{i}");
 
         var ifContext = new Context() { Parent = context };
         if (statement?.Block != null)
@@ -80,10 +80,10 @@ namespace IronBlock.Blocks.Controls
         ifStatements.Add(newIfStatement);
       }
 
-      string elseMutation = this.Mutations.GetValue("else");
+      string elseMutation = Mutations.GetValue("else");
       if (elseMutation == "1")
       {
-        var statement = this.Statements.Get("ELSE");
+        var statement = Statements.Get("ELSE");
 
         var elseContext = new Context() { Parent = context };
         if (statement?.Block != null)

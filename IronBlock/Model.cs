@@ -20,7 +20,7 @@ namespace IronBlock
   {
     public Workspace()
     {
-      this.Blocks = new List<IBlock>();
+      Blocks = new List<IBlock>();
     }
 
     public IList<IBlock> Blocks { get; set; }
@@ -33,7 +33,7 @@ namespace IronBlock
 
       // first process procedure def blocks
       var processedProcedureDefBlocks = new List<IBlock>();
-      foreach (IBlock block in this.Blocks)
+      foreach (IBlock block in Blocks)
       {
         if (block is ProceduresDef)
         {
@@ -42,7 +42,7 @@ namespace IronBlock
         }
       }
 
-      foreach (var block in this.Blocks)
+      foreach (var block in Blocks)
       {
         if (!processedProcedureDefBlocks.Contains(block))
         {
@@ -55,7 +55,7 @@ namespace IronBlock
 
     public virtual SyntaxNode Generate(Context context)
     {
-      foreach (var block in this.Blocks)
+      foreach (var block in Blocks)
       {
         var syntaxNode = block.Generate(context);
         if (syntaxNode == null)
@@ -116,11 +116,11 @@ namespace IronBlock
   {
     public IBlock()
     {
-      this.Fields = new List<Field>();
-      this.Values = new List<Value>();
-      this.Statements = new List<Statement>();
-      this.Mutations = new List<Mutation>();
-      this.Comments = new List<Comment>();
+      Fields = new List<Field>();
+      Values = new List<Value>();
+      Statements = new List<Statement>();
+      Mutations = new List<Mutation>();
+      Comments = new List<Comment>();
     }
 
     public string Id { get; set; }
@@ -134,19 +134,19 @@ namespace IronBlock
     public IList<Comment> Comments { get; set; }
     public virtual object Evaluate(Context context)
     {
-      if (null != this.Next && context.EscapeMode == EscapeMode.None)
+      if (null != Next && context.EscapeMode == EscapeMode.None)
       {
-        return this.Next.Evaluate(context);
+        return Next.Evaluate(context);
       }
       return null;
     }
 
     public virtual SyntaxNode Generate(Context context)
     {
-      if (null != this.Next && context.EscapeMode == EscapeMode.None)
+      if (null != Next && context.EscapeMode == EscapeMode.None)
       {
-        var node = this.Next.Generate(context);
-        var commentText = string.Join("\n", this.Next.Comments.Select(x => x.Value));
+        var node = Next.Generate(context);
+        var commentText = string.Join("\n", Next.Comments.Select(x => x.Value));
         if (string.IsNullOrWhiteSpace(commentText)) return node;
         return node.WithLeadingTrivia(SyntaxFactory.Comment($"/* {commentText} */"));
       }
@@ -183,13 +183,13 @@ namespace IronBlock
     public IBlock Block { get; set; }
     public object Evaluate(Context context)
     {
-      if (null == this.Block) return null;
-      return this.Block.Evaluate(context);
+      if (null == Block) return null;
+      return Block.Evaluate(context);
     }
     public SyntaxNode Generate(Context context)
     {
-      if (null == this.Block) return null;
-      return this.Block.Generate(context);
+      if (null == Block) return null;
+      return Block.Generate(context);
     }
   }
 
@@ -199,13 +199,13 @@ namespace IronBlock
     public IBlock Block { get; set; }
     public object Evaluate(Context context)
     {
-      if (null == this.Block) return null;
-      return this.Block.Evaluate(context);
+      if (null == Block) return null;
+      return Block.Evaluate(context);
     }
     public SyntaxNode Generate(Context context)
     {
-      if (null == this.Block) return null;
-      return this.Block.Generate(context);
+      if (null == Block) return null;
+      return Block.Generate(context);
     }
   }
 
@@ -228,10 +228,10 @@ namespace IronBlock
   {
     public Context()
     {
-      this.Variables = new Dictionary<string, object>();
-      this.Functions = new Dictionary<string, object>();
+      Variables = new Dictionary<string, object>();
+      Functions = new Dictionary<string, object>();
 
-      this.Statements = new List<StatementSyntax>();
+      Statements = new List<StatementSyntax>();
     }
 
     public IDictionary<string, object> Variables { get; set; }
@@ -249,7 +249,7 @@ namespace IronBlock
   {
     public ProcedureContext()
     {
-      this.Parameters = new Dictionary<string, object>();
+      Parameters = new Dictionary<string, object>();
     }
 
     public IDictionary<string, object> Parameters { get; set; }
@@ -259,9 +259,9 @@ namespace IronBlock
   {
     public Mutation(string domain, string name, string value)
     {
-      this.Domain = domain;
-      this.Name = name;
-      this.Value = value;
+      Domain = domain;
+      Name = name;
+      Value = value;
     }
     public string Domain { get; set; }
     public string Name { get; set; }
@@ -274,7 +274,7 @@ namespace IronBlock
   {
     public Comment(string value)
     {
-      this.Value = value;
+      Value = value;
     }
     public string Value { get; set; }
   }

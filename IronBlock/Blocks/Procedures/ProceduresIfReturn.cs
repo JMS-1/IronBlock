@@ -10,10 +10,10 @@ namespace IronBlock.Blocks.Text
   {
     public override object Evaluate(Context context)
     {
-      var condition = this.Values.Evaluate("CONDITION", context);
+      var condition = Values.Evaluate("CONDITION", context);
       if ((bool)condition)
       {
-        return this.Values.Evaluate("VALUE", context);
+        return Values.Evaluate("VALUE", context);
       }
 
       return base.Evaluate(context);
@@ -21,14 +21,14 @@ namespace IronBlock.Blocks.Text
 
     public override SyntaxNode Generate(Context context)
     {
-      var condition = this.Values.Generate("CONDITION", context) as ExpressionSyntax;
+      var condition = Values.Generate("CONDITION", context) as ExpressionSyntax;
       if (condition == null) throw new ApplicationException($"Unknown expression for condition.");
 
       ReturnStatementSyntax returnStatement = ReturnStatement();
 
-      if (this.Values.Any(x => x.Name == "VALUE"))
+      if (Values.Any(x => x.Name == "VALUE"))
       {
-        var statement = this.Values.Generate("VALUE", context) as ExpressionSyntax;
+        var statement = Values.Generate("VALUE", context) as ExpressionSyntax;
         if (statement == null) throw new ApplicationException($"Unknown expression for return statement.");
 
         returnStatement = ReturnStatement(statement);

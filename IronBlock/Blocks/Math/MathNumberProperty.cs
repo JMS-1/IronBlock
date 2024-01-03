@@ -10,8 +10,8 @@ namespace IronBlock.Blocks.Math
   {
     public override object Evaluate(Context context)
     {
-      var op = this.Fields.Get("PROPERTY");
-      var number = (double)this.Values.Evaluate("NUMBER_TO_CHECK", context);
+      var op = Fields.Get("PROPERTY");
+      var number = (double)Values.Evaluate("NUMBER_TO_CHECK", context);
 
       switch (op)
       {
@@ -21,15 +21,15 @@ namespace IronBlock.Blocks.Math
         case "WHOLE": return 0 == number % 1.0;
         case "POSITIVE": return number > 0;
         case "NEGATIVE": return number < 0;
-        case "DIVISIBLE_BY": return 0 == number % (double)this.Values.Evaluate("DIVISOR", context);
+        case "DIVISIBLE_BY": return 0 == number % (double)Values.Evaluate("DIVISOR", context);
         default: throw new ApplicationException($"Unknown PROPERTY {op}");
       }
     }
 
     public override SyntaxNode Generate(Context context)
     {
-      var op = this.Fields.Get("PROPERTY");
-      var numberExpression = this.Values.Generate("NUMBER_TO_CHECK", context) as ExpressionSyntax;
+      var op = Fields.Get("PROPERTY");
+      var numberExpression = Values.Generate("NUMBER_TO_CHECK", context) as ExpressionSyntax;
       if (numberExpression == null) throw new ApplicationException($"Unknown expression for number.");
 
       switch (op)
@@ -55,7 +55,7 @@ namespace IronBlock.Blocks.Math
             LiteralValue(0)
           );
         case "DIVISIBLE_BY":
-          var divisorExpression = this.Values.Generate("DIVISOR", context) as ExpressionSyntax;
+          var divisorExpression = Values.Generate("DIVISOR", context) as ExpressionSyntax;
           if (divisorExpression == null) throw new ApplicationException($"Unknown expression for divisor.");
 
           return CompareModulo(numberExpression, divisorExpression, 0);
