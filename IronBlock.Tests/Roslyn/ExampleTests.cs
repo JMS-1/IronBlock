@@ -17,7 +17,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic n; n = 1; for (int count = 0; count < 4; count++) { n = (n * 2); Console.WriteLine(n); }"));
     }
 
@@ -32,7 +32,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("if (((6 * 7) == 42)) { Console.WriteLine(\"Don't panic\"); } else { Console.WriteLine(\"Panic\"); }"));
     }
 
@@ -46,7 +46,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic a; dynamic b; dynamic i; void test(dynamic x) { a = 2; b = (a * b); b = (b / 2); if ((b > 6)) { for (i = 1; i <= 10; i += 2) { a = (a * i); b = (1 + x); } }  a = (b * x); }  test(11);"));
     }
 

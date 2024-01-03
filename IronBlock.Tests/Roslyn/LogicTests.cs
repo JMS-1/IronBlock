@@ -23,7 +23,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("true;"));
     }
 
@@ -53,7 +53,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("(false == true);"));
     }
 
@@ -84,7 +84,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("(false || true);"));
     }
 
@@ -114,7 +114,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("(false && true);"));
     }
 
@@ -138,7 +138,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("!true;"));
     }
 
@@ -156,7 +156,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("null;"));
     }
 
@@ -190,7 +190,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("true ? false : true;"));
     }
   }

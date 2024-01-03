@@ -28,7 +28,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("Math.Sqrt(9);"));
     }
 
@@ -53,7 +53,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("Math.Sin(45 / (180 * Math.PI));"));
     }
 
@@ -73,7 +73,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("Math.PI;"));
     }
 
@@ -100,7 +100,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("4 % 2 == 0;"));
     }
 
@@ -126,7 +126,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("3 % 2 == 1;"));
     }
 
@@ -179,7 +179,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("7 % 1 == 0;"));
     }
 
@@ -205,7 +205,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("7.1 % 1 == 0;"));
     }
 
@@ -231,7 +231,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("7.1 > 0;"));
     }
 
@@ -257,7 +257,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("7.1 < 0;"));
     }
 
@@ -288,7 +288,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("9 % 3 == 0;"));
     }
 
@@ -313,7 +313,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("Math.Round(3.1);"));
     }
 
@@ -338,7 +338,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("Math.Ceiling(3.1);"));
     }
 
@@ -364,7 +364,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("Math.Floor(3.1);"));
     }
 
@@ -400,7 +400,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("Enumerable.Repeat(3, 5).ToList().Sum();"));
     }
 
@@ -506,7 +506,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("Math.Min(Math.Max(110, 1), 100);"));
     }
 
@@ -536,7 +536,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("64 % 10;"));
     }
 

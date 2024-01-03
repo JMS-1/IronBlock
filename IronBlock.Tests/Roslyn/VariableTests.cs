@@ -30,7 +30,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("dynamic a;"));
       Assert.IsTrue(code.Contains("a = 1;"));
     }
@@ -89,7 +89,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("dynamic a;"));
       Assert.IsTrue(code.Contains("dynamic b;"));
       Assert.IsTrue(code.Contains("a = 5;"));

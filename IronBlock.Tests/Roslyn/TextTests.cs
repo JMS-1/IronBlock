@@ -26,7 +26,7 @@ namespace IronBlock.Tests.Roslyn
         .Parse(xml)
         .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("\"abc\".Length;"));
     }
 
@@ -51,7 +51,7 @@ namespace IronBlock.Tests.Roslyn
         .Parse(xml)
         .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("string.IsNullOrEmpty(\"\");"));
     }
 
@@ -76,7 +76,7 @@ namespace IronBlock.Tests.Roslyn
         .Parse(xml)
         .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("\" ab c \".Trim();"));
     }
 
@@ -100,7 +100,7 @@ namespace IronBlock.Tests.Roslyn
         .Parse(xml)
         .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("CultureInfo.InvariantCulture.TextInfo.ToTitleCase(\"hello world\");"));
     }
 
@@ -151,7 +151,7 @@ namespace IronBlock.Tests.Roslyn
         .Parse(xml)
         .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic x; x = \"foo\"; x += \"bar\"; Console.WriteLine(x);"));
     }
 
@@ -200,7 +200,7 @@ namespace IronBlock.Tests.Roslyn
         .Parse(xml)
         .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic x; x = string.Concat(\"foo\", \"bar\"); Console.WriteLine(x);"));
     }
 
@@ -230,7 +230,7 @@ namespace IronBlock.Tests.Roslyn
         .Parse(xml)
         .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("\"foo bar baz\".IndexOf(\"bar\");"));
     }
 

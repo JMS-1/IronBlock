@@ -37,7 +37,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("void init() { a = 1; }"));
     }
 
@@ -83,7 +83,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("void init() { Console.WriteLine(x); x = 1; }"));
     }
 
@@ -134,7 +134,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("void add(dynamic x, dynamic y) { a = (x + y); }"));
     }
 
@@ -180,7 +180,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic add(dynamic x, dynamic y) { return (x + y); }"));
     }
 
@@ -265,7 +265,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic do_something(dynamic x, dynamic y) { a = (x * y); a = (Math.Pow(a, x)); return (x + 1); }"));
     }
 
@@ -297,7 +297,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("void returns() { if (true) return; }"));
     }
 
@@ -338,7 +338,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic conditionalreturn() { if (true) return \"hello world\"; return \"xxx\"; }"));
     }
 
@@ -358,7 +358,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("add();"));
     }
 
@@ -392,7 +392,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("add(a, 1);"));
     }
 
@@ -430,7 +430,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("a = add(a, 1);"));
     }
 
@@ -467,7 +467,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("do_something(); result = 123;"));
     }
 
@@ -511,7 +511,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("if (true) return; result = 123;"));
     }
   }

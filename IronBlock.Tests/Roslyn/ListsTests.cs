@@ -38,7 +38,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("new List<dynamic> { \"x\", \"y\", \"z\" };"));
     }
 
@@ -70,7 +70,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("\"x,y,z\".ToString(CultureInfo.InvariantCulture).Split(\",\");"));
     }
 
@@ -117,7 +117,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("string.Join(\",\", new List<dynamic> { \"x\", \"y\", \"z\" });"));
     }
 
@@ -154,7 +154,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("\"a,b,c\".ToString(CultureInfo.InvariantCulture).Split(\",\").Length;"));
     }
 
@@ -184,7 +184,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace().ToFullString();
+      var code = output.NormalizeWhitespace().ToFullString();
       Assert.IsTrue(code.Contains("Enumerable.Repeat(\"hello\", 3).ToList();"));
     }
 
@@ -209,7 +209,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("new List<dynamic> { }.Any();"));
     }
 
@@ -258,7 +258,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic item; item = Enumerable.Repeat(10, 5).ToList()[2 - 1];"));
     }
 
@@ -298,7 +298,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic item; item = new List<dynamic> { }.TakeLast(2).First();"));
     }
 
@@ -333,7 +333,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic item; item = new List<dynamic> { }.First();"));
     }
 
@@ -368,7 +368,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic item; item = new List<dynamic> { }.Last();"));
     }
 
@@ -428,7 +428,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic list; list = new List<dynamic> { 10, 20 }; list[2 - 1] = 30;"));
     }
 
@@ -478,7 +478,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic list; list = new List<dynamic> { }; list[list.Count - 2] = 10;"));
     }
 
@@ -523,7 +523,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic list; list = new List<dynamic> { }; list[0] = 10;"));
     }
 
@@ -568,7 +568,7 @@ namespace IronBlock.Tests.Roslyn
           .Parse(xml)
           .Generate();
 
-      string code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
       Assert.IsTrue(code.Contains("dynamic list; list = new List<dynamic> { }; list[list.Count - 1] = 10;"));
     }
   }
