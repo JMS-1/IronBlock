@@ -4,7 +4,7 @@ namespace IronBlock.Blocks.Text
 {
   public class ColourRgb : IBlock
   {
-    private Random random = new Random();
+    private readonly Random random = new Random();
     public override object Evaluate(Context context)
     {
       var red = Convert.ToByte(Values.Evaluate("RED", context));

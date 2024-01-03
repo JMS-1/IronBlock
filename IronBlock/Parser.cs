@@ -7,7 +7,7 @@ namespace IronBlock
 {
   public class Parser
   {
-    private IDictionary<string, Func<IBlock>> blocks = new Dictionary<string, Func<IBlock>>();
+    private readonly IDictionary<string, Func<IBlock>> blocks = new Dictionary<string, Func<IBlock>>();
 
     public Parser AddBlock<T>(string type) where T : IBlock, new()
     {

@@ -9,7 +9,7 @@ namespace IronBlock.Blocks.Math
 {
   public class MathOnList : IBlock
   {
-    private static Random rnd = new Random();
+    private static readonly Random rnd = new Random();
     public override object Evaluate(Context context)
     {
       var op = Fields.Get("OP");

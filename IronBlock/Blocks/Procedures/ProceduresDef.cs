@@ -152,7 +152,7 @@ namespace IronBlock.Blocks.Text
 
     private class ValueBlock : IBlock
     {
-      private Value value;
+      private readonly Value value;
       public ValueBlock(Value value)
       {
         this.value = value;

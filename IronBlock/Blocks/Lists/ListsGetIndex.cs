@@ -11,7 +11,7 @@ namespace IronBlock.Blocks.Lists
 {
   public class ListsGetIndex : IBlock
   {
-    private static Random rnd = new Random();
+    private static readonly Random rnd = new Random();
 
     public override object Evaluate(Context context)
     {

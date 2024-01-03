@@ -5,7 +5,7 @@ namespace IronBlock.Blocks.Math
 {
   public class MathRandomInt : IBlock
   {
-    private static Random rand = new Random();
+    private static readonly Random rand = new Random();
 
     public override object Evaluate(Context context)
     {
