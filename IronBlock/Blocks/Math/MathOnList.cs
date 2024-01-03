@@ -9,7 +9,7 @@ namespace IronBlock.Blocks.Math
 {
   public class MathOnList : IBlock
   {
-    static Random rnd = new Random();
+    private static Random rnd = new Random();
     public override object Evaluate(Context context)
     {
       var op = Fields.Get("OP");
@@ -61,7 +61,7 @@ namespace IronBlock.Blocks.Math
       }
     }
 
-    static object Median(IEnumerable<double> values)
+    private static object Median(IEnumerable<double> values)
     {
       if (!values.Any()) return null;
       var sortedValues = values.OrderBy(x => x).ToArray();

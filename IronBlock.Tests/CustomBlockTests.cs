@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using IronBlock.Blocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -12,7 +10,7 @@ namespace IronBlock.Tests
 
     public override object Evaluate(Context context)
     {
-      Text.Add((this.Values.FirstOrDefault(x => x.Name == "VALUE")?.Evaluate(context) ?? "").ToString());
+      Text.Add((Values.FirstOrDefault(x => x.Name == "VALUE")?.Evaluate(context) ?? "").ToString()!);
       return base.Evaluate(context);
     }
   }

@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using IronBlock.Blocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -44,7 +41,7 @@ namespace IronBlock.Tests
 
       var output = program.Evaluate() as string;
 
-      Assert.AreEqual(7, output.Length);
+      Assert.AreEqual(7, output!.Length);
       Assert.AreEqual('#', output[0]);
 
       // assure it's random by asking for another one

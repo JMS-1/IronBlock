@@ -5,7 +5,7 @@ namespace IronBlock.Blocks.Text
 {
   public class ColourRandom : IBlock
   {
-    Random random = new Random();
+    private Random random = new Random();
     public override object Evaluate(Context context)
     {
       var bytes = new byte[3];

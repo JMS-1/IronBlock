@@ -14,7 +14,7 @@ namespace IronBlock.Blocks.Math
       return GetValue(constant);
     }
 
-    static double GetValue(string constant)
+    private static double GetValue(string constant)
     {
       switch (constant)
       {

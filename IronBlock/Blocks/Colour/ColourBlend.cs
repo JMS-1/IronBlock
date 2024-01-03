@@ -4,7 +4,7 @@ namespace IronBlock.Blocks.Text
 {
   public class ColourBlend : IBlock
   {
-    Random random = new Random();
+    private Random random = new Random();
     public override object Evaluate(Context context)
     {
       var colour1 = (Values.Evaluate("COLOUR1", context) ?? "").ToString();

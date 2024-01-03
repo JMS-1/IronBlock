@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using IronBlock.Blocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -41,7 +38,7 @@ namespace IronBlock.Tests
         .Parse(xml)
         .Evaluate();
 
-      Assert.AreEqual("x,y,z", string.Join(",", (output as IEnumerable<object>).Select(x => x.ToString())));
+      Assert.AreEqual("x,y,z", string.Join(",", (output as IEnumerable<object>)!.Select(x => x.ToString())));
     }
 
 
@@ -73,7 +70,7 @@ namespace IronBlock.Tests
         .Parse(xml)
         .Evaluate();
 
-      Assert.AreEqual("x,y,z", string.Join(",", output as IEnumerable<object>));
+      Assert.AreEqual("x,y,z", string.Join(",", (output as IEnumerable<object>)!));
 
     }
 
@@ -186,7 +183,7 @@ namespace IronBlock.Tests
         .Parse(xml)
         .Evaluate();
 
-      Assert.AreEqual("hello,hello,hello", string.Join(",", (output as IEnumerable<object>).Select(x => x.ToString())));
+      Assert.AreEqual("hello,hello,hello", string.Join(",", (output as IEnumerable<object>)!.Select(x => x.ToString())));
 
     }
 

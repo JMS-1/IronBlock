@@ -7,7 +7,7 @@ namespace IronBlock
 {
   public class Parser
   {
-    IDictionary<string, Func<IBlock>> blocks = new Dictionary<string, Func<IBlock>>();
+    private IDictionary<string, Func<IBlock>> blocks = new Dictionary<string, Func<IBlock>>();
 
     public Parser AddBlock<T>(string type) where T : IBlock, new()
     {
@@ -88,7 +88,7 @@ namespace IronBlock
       return workspace;
     }
 
-    IBlock ParseBlock(XmlNode node)
+    private IBlock ParseBlock(XmlNode node)
     {
       if (bool.Parse(node.GetAttribute("disabled") ?? "false")) return null;
 
@@ -129,7 +129,7 @@ namespace IronBlock
       return block;
     }
 
-    static void ParseField(XmlNode fieldNode, IBlock block)
+    private static void ParseField(XmlNode fieldNode, IBlock block)
     {
       var field = new Field
       {
@@ -139,7 +139,7 @@ namespace IronBlock
       block.Fields.Add(field);
     }
 
-    void ParseValue(XmlNode valueNode, IBlock block)
+    private void ParseValue(XmlNode valueNode, IBlock block)
     {
       var childNode = valueNode.GetChild("block") ?? valueNode.GetChild("shadow");
       if (childNode == null) return;
@@ -153,12 +153,12 @@ namespace IronBlock
       block.Values.Add(value);
     }
 
-    static void ParseComment(XmlNode commentNode, IBlock block)
+    private static void ParseComment(XmlNode commentNode, IBlock block)
     {
       block.Comments.Add(new Comment(commentNode.InnerText));
     }
 
-    void ParseStatement(XmlNode statementNode, IBlock block)
+    private void ParseStatement(XmlNode statementNode, IBlock block)
     {
       var childNode = statementNode.GetChild("block") ?? statementNode.GetChild("shadow");
       if (childNode == null) return;
@@ -172,7 +172,7 @@ namespace IronBlock
       block.Statements.Add(statement);
     }
 
-    static void ParseMutation(XmlNode mutationNode, IBlock block)
+    private static void ParseMutation(XmlNode mutationNode, IBlock block)
     {
       foreach (XmlAttribute attribute in mutationNode.Attributes)
       {

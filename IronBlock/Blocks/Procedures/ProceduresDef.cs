@@ -144,16 +144,15 @@ namespace IronBlock.Blocks.Text
       return base.Generate(context);
     }
 
-    static IBlock FindEndOfChain(IBlock block)
+    private static IBlock FindEndOfChain(IBlock block)
     {
       if (null == block.Next) return block;
       return FindEndOfChain(block.Next);
     }
 
-
-    class ValueBlock : IBlock
+    private class ValueBlock : IBlock
     {
-      Value value;
+      private Value value;
       public ValueBlock(Value value)
       {
         this.value = value;
