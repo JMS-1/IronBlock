@@ -114,7 +114,7 @@ namespace IronBlock
 
   public abstract class IBlock : IFragment
   {
-    public IBlock()
+    protected IBlock()
     {
       Fields = new List<Field>();
       Values = new List<Value>();
