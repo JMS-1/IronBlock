@@ -71,7 +71,7 @@ namespace IronBlock.Blocks.Math
       );
     }
 
-    private SyntaxNode CompareModulo(ExpressionSyntax numberExpression, ExpressionSyntax moduloValueExpression, double compareValue)
+    private static SyntaxNode CompareModulo(ExpressionSyntax numberExpression, ExpressionSyntax moduloValueExpression, double compareValue)
     {
       return
         BinaryExpression(
