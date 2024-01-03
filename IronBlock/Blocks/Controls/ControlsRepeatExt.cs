@@ -37,8 +37,7 @@ namespace IronBlock.Blocks.Controls
 
     public override SyntaxNode Generate(Context context)
     {
-      var timesExpression = Values.Generate("TIMES", context) as ExpressionSyntax;
-      if (timesExpression == null) throw new ApplicationException($"Unknown expression for times.");
+      if (Values.Generate("TIMES", context) is not ExpressionSyntax timesExpression) throw new ApplicationException($"Unknown expression for times.");
 
       if (!Statements.Any(x => x.Name == "DO")) return base.Generate(context);
 

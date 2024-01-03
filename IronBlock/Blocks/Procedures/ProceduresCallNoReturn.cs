@@ -44,8 +44,7 @@ namespace IronBlock.Blocks.Text
       var counter = 0;
       foreach (var mutation in Mutations.Where(x => x.Domain == "arg" && x.Name == "name"))
       {
-        var argumentExpression = Values.Generate($"ARG{counter}", context) as ExpressionSyntax;
-        if (argumentExpression == null)
+        if (Values.Generate($"ARG{counter}", context) is not ExpressionSyntax argumentExpression)
           throw new ApplicationException($"Unknown argument expression for ARG{counter}.");
 
         arguments.Add(Argument(argumentExpression));

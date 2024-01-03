@@ -36,8 +36,7 @@ namespace IronBlock.Blocks.Math
 
     public override SyntaxNode Generate(Context context)
     {
-      var listExpression = Values.Generate("LIST", context) as ExpressionSyntax;
-      if (listExpression == null) throw new ApplicationException($"Unknown expression for list.");
+      if (Values.Generate("LIST", context) is not ExpressionSyntax listExpression) throw new ApplicationException($"Unknown expression for list.");
 
       var op = Fields.Get("OP");
 

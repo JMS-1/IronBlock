@@ -50,8 +50,7 @@ namespace IronBlock.Blocks.Controls
 
       var statement = Statements.Get("DO");
 
-      var conditionExpression = value.Generate(context) as ExpressionSyntax;
-      if (conditionExpression == null) throw new ApplicationException($"Unknown expression for condition.");
+      if (value.Generate(context) is not ExpressionSyntax conditionExpression) throw new ApplicationException($"Unknown expression for condition.");
 
       var whileContext = new Context() { Parent = context };
       if (statement?.Block != null)

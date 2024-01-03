@@ -30,11 +30,9 @@ namespace IronBlock.Blocks.Math
 
     public override SyntaxNode Generate(Context context)
     {
-      var firstExpression = Values.Generate("A", context) as ExpressionSyntax;
-      if (firstExpression == null) throw new ApplicationException($"Unknown expression for value A.");
+      if (Values.Generate("A", context) is not ExpressionSyntax firstExpression) throw new ApplicationException($"Unknown expression for value A.");
 
-      var secondExpression = Values.Generate("B", context) as ExpressionSyntax;
-      if (secondExpression == null) throw new ApplicationException($"Unknown expression for value B.");
+      if (Values.Generate("B", context) is not ExpressionSyntax secondExpression) throw new ApplicationException($"Unknown expression for value B.");
 
       ExpressionSyntax expression = null;
 

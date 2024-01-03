@@ -70,8 +70,7 @@ namespace IronBlock.Blocks.Lists
 
     public override SyntaxNode Generate(Context context)
     {
-      var valueExpression = Values.Generate("VALUE", context) as ExpressionSyntax;
-      if (valueExpression == null) throw new ApplicationException($"Unknown expression for value.");
+      if (Values.Generate("VALUE", context) is not ExpressionSyntax valueExpression) throw new ApplicationException($"Unknown expression for value.");
 
       ExpressionSyntax atExpression = null;
       if (Values.Any(x => x.Name == "AT"))

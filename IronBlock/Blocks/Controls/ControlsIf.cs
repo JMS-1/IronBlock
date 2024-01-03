@@ -61,8 +61,7 @@ namespace IronBlock.Blocks.Controls
 
       for (var i = 0; i < ifCount; i++)
       {
-        var conditional = Values.Generate($"IF{i}", context) as ExpressionSyntax;
-        if (conditional == null) throw new ApplicationException($"Unknown expression for condition.");
+        if (Values.Generate($"IF{i}", context) is not ExpressionSyntax conditional) throw new ApplicationException($"Unknown expression for condition.");
 
         var statement = Statements.Get($"DO{i}");
 

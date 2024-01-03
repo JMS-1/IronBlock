@@ -31,8 +31,7 @@ namespace IronBlock.Blocks.Text
       var variables = context.Variables;
       var variableName = Fields.Get("VAR").CreateValidName();
 
-      var textExpression = Values.Generate("TEXT", context) as ExpressionSyntax;
-      if (textExpression == null)
+      if (Values.Generate("TEXT", context) is not ExpressionSyntax textExpression)
         throw new ApplicationException($"Unknown expression for text.");
 
       context.GetRootContext().Variables[variableName] = textExpression;

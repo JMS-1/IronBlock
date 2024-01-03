@@ -21,15 +21,13 @@ namespace IronBlock.Blocks.Text
 
     public override SyntaxNode Generate(Context context)
     {
-      var condition = Values.Generate("CONDITION", context) as ExpressionSyntax;
-      if (condition == null) throw new ApplicationException($"Unknown expression for condition.");
+      if (Values.Generate("CONDITION", context) is not ExpressionSyntax condition) throw new ApplicationException($"Unknown expression for condition.");
 
       ReturnStatementSyntax returnStatement = ReturnStatement();
 
       if (Values.Any(x => x.Name == "VALUE"))
       {
-        var statement = Values.Generate("VALUE", context) as ExpressionSyntax;
-        if (statement == null) throw new ApplicationException($"Unknown expression for return statement.");
+        if (Values.Generate("VALUE", context) is not ExpressionSyntax statement) throw new ApplicationException($"Unknown expression for return statement.");
 
         returnStatement = ReturnStatement(statement);
       }

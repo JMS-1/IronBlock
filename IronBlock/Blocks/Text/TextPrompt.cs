@@ -34,8 +34,7 @@ namespace IronBlock.Blocks.Text
     {
       var inputType = Mutations.GetValue("type") ?? "TEXT";
 
-      var expression = Values.Generate("TEXT", context) as ExpressionSyntax;
-      if (expression != null)
+      if (Values.Generate("TEXT", context) is ExpressionSyntax expression)
       {
         context.Statements.Add(
           ExpressionStatement(

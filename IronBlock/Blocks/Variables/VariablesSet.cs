@@ -36,8 +36,7 @@ namespace IronBlock.Blocks.Variables
 
       var variableName = Fields.Get("VAR").CreateValidName();
 
-      var valueExpression = Values.Generate("VALUE", context) as ExpressionSyntax;
-      if (valueExpression == null)
+      if (Values.Generate("VALUE", context) is not ExpressionSyntax valueExpression)
         throw new ApplicationException("Unknown expression for value.");
 
       context.GetRootContext().Variables[variableName] = valueExpression;

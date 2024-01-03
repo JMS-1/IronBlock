@@ -27,8 +27,7 @@ namespace IronBlock.Blocks.Lists
 
       foreach (var value in Values)
       {
-        var itemExpression = value.Generate(context) as ExpressionSyntax;
-        if (itemExpression == null) throw new ApplicationException($"Unknown expression for item.");
+        if (value.Generate(context) is not ExpressionSyntax itemExpression) throw new ApplicationException($"Unknown expression for item.");
 
         expressions.Add(itemExpression);
       }

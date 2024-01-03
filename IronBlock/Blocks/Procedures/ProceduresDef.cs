@@ -76,8 +76,7 @@ namespace IronBlock.Blocks.Text
       if (Values.Any(x => x.Name == "RETURN"))
       {
         var returnValue = Values.First(x => x.Name == "RETURN");
-        var returnExpression = returnValue.Generate(context) as ExpressionSyntax;
-        if (returnExpression == null) throw new ApplicationException($"Unknown expression for return statement.");
+        if (returnValue.Generate(context) is not ExpressionSyntax returnExpression) throw new ApplicationException($"Unknown expression for return statement.");
 
         returnStatement = ReturnStatement(returnExpression);
       }

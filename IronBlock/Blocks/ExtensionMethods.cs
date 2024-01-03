@@ -74,12 +74,10 @@ namespace IronBlock.Blocks
     {
       var syntaxNode = fragment.Generate(context);
 
-      var statementSyntax = syntaxNode as StatementSyntax;
-      if (statementSyntax != null)
+      if (syntaxNode is StatementSyntax statementSyntax)
         return statementSyntax;
 
-      var expressionSyntax = syntaxNode as ExpressionSyntax;
-      if (expressionSyntax != null)
+      if (syntaxNode is ExpressionSyntax expressionSyntax)
         return SyntaxFactory.ExpressionStatement(expressionSyntax);
 
       return null;

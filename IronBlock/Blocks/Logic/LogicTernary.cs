@@ -30,14 +30,11 @@ namespace IronBlock.Blocks.Logic
     }
     public override SyntaxNode Generate(Context context)
     {
-      var conditionalExpression = Values.Generate("IF", context) as ExpressionSyntax;
-      if (conditionalExpression == null) throw new ApplicationException($"Unknown expression for conditional statement.");
+      if (Values.Generate("IF", context) is not ExpressionSyntax conditionalExpression) throw new ApplicationException($"Unknown expression for conditional statement.");
 
-      var trueExpression = Values.Generate("THEN", context) as ExpressionSyntax;
-      if (trueExpression == null) throw new ApplicationException($"Unknown expression for true statement.");
+      if (Values.Generate("THEN", context) is not ExpressionSyntax trueExpression) throw new ApplicationException($"Unknown expression for true statement.");
 
-      var falseExpression = Values.Generate("ELSE", context) as ExpressionSyntax;
-      if (falseExpression == null) throw new ApplicationException($"Unknown expression for false statement.");
+      if (Values.Generate("ELSE", context) is not ExpressionSyntax falseExpression) throw new ApplicationException($"Unknown expression for false statement.");
 
       return ConditionalExpression(
             conditionalExpression,

@@ -61,8 +61,7 @@ namespace IronBlock
         if (syntaxNode == null)
           continue;
 
-        var statement = syntaxNode as StatementSyntax;
-        if (statement == null)
+        if (syntaxNode is not StatementSyntax statement)
         {
           statement = ExpressionStatement(syntaxNode as ExpressionSyntax);
         }
@@ -78,8 +77,7 @@ namespace IronBlock
 
       foreach (var function in context.Functions.Reverse())
       {
-        var methodDeclaration = function.Value as LocalFunctionStatementSyntax;
-        if (methodDeclaration == null)
+        if (function.Value is not LocalFunctionStatementSyntax methodDeclaration)
           continue;
 
         context.Statements.Insert(0, methodDeclaration);

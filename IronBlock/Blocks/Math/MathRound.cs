@@ -23,8 +23,7 @@ namespace IronBlock.Blocks.Math
     public override SyntaxNode Generate(Context context)
     {
       var op = Fields.Get("OP");
-      var numberExpression = Values.Generate("NUM", context) as ExpressionSyntax;
-      if (numberExpression == null) throw new ApplicationException($"Unknown expression for number.");
+      if (Values.Generate("NUM", context) is not ExpressionSyntax numberExpression) throw new ApplicationException($"Unknown expression for number.");
 
       switch (op)
       {

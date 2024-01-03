@@ -35,8 +35,7 @@ namespace IronBlock.Blocks.Text
       for (var i = 0; i < items; i++)
       {
         if (!Values.Any(x => x.Name == $"ADD{i}")) continue;
-        var addExpression = Values.Generate($"ADD{i}", context) as ExpressionSyntax;
-        if (addExpression == null) throw new ApplicationException($"Unknown expression for ADD{i}.");
+        if (Values.Generate($"ADD{i}", context) is not ExpressionSyntax addExpression) throw new ApplicationException($"Unknown expression for ADD{i}.");
 
         arguments.Add(addExpression);
       }

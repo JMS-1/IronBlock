@@ -43,14 +43,11 @@ namespace IronBlock.Blocks.Controls
     {
       var variableName = Fields.Get("VAR").CreateValidName();
 
-      var fromValueExpression = Values.Generate("FROM", context) as ExpressionSyntax;
-      if (fromValueExpression == null) throw new ApplicationException($"Unknown expression for from value.");
+      if (Values.Generate("FROM", context) is not ExpressionSyntax fromValueExpression) throw new ApplicationException($"Unknown expression for from value.");
 
-      var toValueExpression = Values.Generate("TO", context) as ExpressionSyntax;
-      if (toValueExpression == null) throw new ApplicationException($"Unknown expression for to value.");
+      if (Values.Generate("TO", context) is not ExpressionSyntax toValueExpression) throw new ApplicationException($"Unknown expression for to value.");
 
-      var byValueExpression = Values.Generate("BY", context) as ExpressionSyntax;
-      if (byValueExpression == null) throw new ApplicationException($"Unknown expression for by value.");
+      if (Values.Generate("BY", context) is not ExpressionSyntax byValueExpression) throw new ApplicationException($"Unknown expression for by value.");
 
       var statement = Statements.FirstOrDefault();
 

@@ -15,8 +15,7 @@ namespace IronBlock.Blocks.Logic
 
     public override SyntaxNode Generate(Context context)
     {
-      var boolExpression = Values.Generate("BOOL", context) as ExpressionSyntax;
-      if (boolExpression == null) throw new ApplicationException($"Unknown expression for negate.");
+      if (Values.Generate("BOOL", context) is not ExpressionSyntax boolExpression) throw new ApplicationException($"Unknown expression for negate.");
 
       return PrefixUnaryExpression(SyntaxKind.LogicalNotExpression, boolExpression);
     }

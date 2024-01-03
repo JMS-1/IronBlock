@@ -29,8 +29,7 @@ namespace IronBlock.Blocks.Math
     public override SyntaxNode Generate(Context context)
     {
       var op = Fields.Get("PROPERTY");
-      var numberExpression = Values.Generate("NUMBER_TO_CHECK", context) as ExpressionSyntax;
-      if (numberExpression == null) throw new ApplicationException($"Unknown expression for number.");
+      if (Values.Generate("NUMBER_TO_CHECK", context) is not ExpressionSyntax numberExpression) throw new ApplicationException($"Unknown expression for number.");
 
       switch (op)
       {
@@ -55,8 +54,7 @@ namespace IronBlock.Blocks.Math
             LiteralValue(0)
           );
         case "DIVISIBLE_BY":
-          var divisorExpression = Values.Generate("DIVISOR", context) as ExpressionSyntax;
-          if (divisorExpression == null) throw new ApplicationException($"Unknown expression for divisor.");
+          if (Values.Generate("DIVISOR", context) is not ExpressionSyntax divisorExpression) throw new ApplicationException($"Unknown expression for divisor.");
 
           return CompareModulo(numberExpression, divisorExpression, 0);
         default: throw new ApplicationException($"Unknown PROPERTY {op}");
