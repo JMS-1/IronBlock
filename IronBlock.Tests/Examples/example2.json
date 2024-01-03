@@ -1,0 +1,104 @@
+{
+  "blocks": {
+    "languageVersion": 0,
+    "blocks": [
+      {
+        "type": "controls_if",
+        "id": "Oy@8#/B*)frLXQO{Qtw^",
+        "x": 20,
+        "y": 20,
+        "inline": false,
+        "extraState": {
+          "hasElse": true
+        },
+        "inputs": {
+          "IF0": {
+            "block": {
+              "type": "logic_compare",
+              "id": "/J~{c0B#oFyHo[YZH-PD",
+              "fields": {
+                "OP": "EQ"
+              },
+              "inputs": {
+                "A": {
+                  "block": {
+                    "type": "math_arithmetic",
+                    "id": "jf09czKA;Ae(fnyrs_U3",
+                    "fields": {
+                      "OP": "MULTIPLY"
+                    },
+                    "inputs": {
+                      "A": {
+                        "block": {
+                          "type": "math_number",
+                          "id": "Yx+(CH%4WNPJcef2A0;N",
+                          "fields": {
+                            "NUM": 6
+                          }
+                        }
+                      },
+                      "B": {
+                        "block": {
+                          "type": "math_number",
+                          "id": "VVy#p5XkU;xXohu#k/=8",
+                          "fields": {
+                            "NUM": 7
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "B": {
+                  "block": {
+                    "type": "math_number",
+                    "id": "C{c%cGfTUo{$zbUN76Z:",
+                    "fields": {
+                      "NUM": 42
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "DO0": {
+            "block": {
+              "type": "text_print",
+              "id": "Jj+9PNB0^a7;a0]9C7GN",
+              "inline": false,
+              "inputs": {
+                "TEXT": {
+                  "block": {
+                    "type": "text",
+                    "id": "#I8~zhT37@a;Hbd8*Sv4",
+                    "fields": {
+                      "TEXT": "Don't panic"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "ELSE": {
+            "block": {
+              "type": "text_print",
+              "id": "akDLBO?84;8LO|Df=7EV",
+              "inline": false,
+              "inputs": {
+                "TEXT": {
+                  "block": {
+                    "type": "text",
+                    "id": "MiRuTc53-u@d]ZtwdlTM",
+                    "fields": {
+                      "TEXT": "Panic"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
