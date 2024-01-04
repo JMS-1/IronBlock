@@ -152,6 +152,21 @@ namespace IronBlock.Tests.Roslyn
           .Parse(json)
           .Generate();
     }
+
+    [TestMethod]
+    public void Test_Example8_Xml()
+    {
+      var json = File.ReadAllText("../../../Examples/example8.xml");
+
+      var output = Parser.CreateXml()
+          .AddStandardBlocks()
+          .Parse(json)
+          .Generate();
+
+      var code = output.NormalizeWhitespace(string.Empty, " ").ToFullString();
+
+      Assert.AreEqual(code, "{ dynamic X12; void bad_guy() { if ((X12 < 12)) { bad_guy(); } else if ((X12 < 13)) { bad_guy(); } else if ((X12 < 14)) { bad_guy(); } else { X12 = 2999.11263; } }  X12 = 9999; if ((X12 == 33)) { bad_guy(); } }");
+    }
   }
 }
 
